@@ -42,21 +42,21 @@ const OtherProjects = () => {
   const otherProjects = [
     {
       title: 'Library Management System',
-      description: 'A weather dashboard that displays current and forecasted weather data for cities around the world.',
+      description: 'A system to manage book inventories, user borrowing records, and library operations efficiently.',
       technologies: ['JavaScript', 'OpenWeather', 'Apache Netbeans', 'HTML', 'CSS'],
       codeLink: '#',
       demoLink: '#',
     },
     {
       title: 'IT Ticketing System',
-      description: 'A web application to track personal expenses, income, and savings goals with data visualization.',
+      description: 'A Microsoft Access-based system for logging, managing, and resolving IT support tickets within an organization.',
       technologies: ['Visual Basic', 'Microsoft Access', 'RDBMS'],
       codeLink: '#',
       demoLink: '#',
     },
     {
       title: 'Point of Sale Systems',
-      description: 'A recipe search application that allows users to find recipes based on ingredients they have.',
+      description: 'A Microsoft Access-based system for processing sales transactions, managing inventory, and generating sales reports in retail environments.',
       technologies: ['Microsoft Access', 'Visual Basic'],
       codeLink: '#',
       demoLink: '#',
