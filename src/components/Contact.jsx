@@ -42,7 +42,7 @@ const Contact = () => {
     {
       name: 'Email',
       icon: <FiMail className="w-6 h-6" />,
-      href: 'desilvajoner95@gmail.com',
+      href: 'mailto:desilvajoner95@gmail.com',
     },
     {
       name: 'GitHub',
