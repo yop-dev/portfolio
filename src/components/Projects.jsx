@@ -52,7 +52,7 @@ const Projects = () => {
         'Upload your resume to get AI-powered feedback, personalized cover letters tailored to the job, and mock interview questions to help you practice and stand out.',
       image: interviewerImage,
       technologies: ['Node.js', 'React', 'Next.js', 'Groq', 'Vercel CLI'],
-      demoLink: 'https://ai-resume-critic.vercel.app',
+      demoLink: 'https://career-launch-ai.vercel.app',
       codeLink: 'https://github.com/yop-dev/ai-resume-critic',
     },
     {
