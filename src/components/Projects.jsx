@@ -44,7 +44,7 @@ const Projects = () => {
       image: tbImage,
       technologies: ['Flask', 'Render', 'Pytorch', 'Pandas', 'Numpy'],
       demoLink: 'https://tb-0.onrender.com',
-      codeLink: 'https://github.com/yop-dev/tb-0',
+      codeLink: 'https://github.com/yop-dev/tb-cough-detection',
     },
     {
       title: 'CareerLaunch AI',
