@@ -5,6 +5,7 @@ import { FiGithub, FiExternalLink } from 'react-icons/fi';
 import tbImage from '../images/TB.png';
 import interviewerImage from '../images/interviewer.png';
 import thesisImage from '../images/thesis.png';
+import legislationImage from '../images/legislation.png';
 
 const Projects = () => {
   const controls = useAnimation();
@@ -56,13 +57,13 @@ const Projects = () => {
       codeLink: 'https://github.com/yop-dev/ai-resume-critic',
     },
     {
-      title: 'Unified Thesis Management System',
+      title: 'RA 10173: Data Privacy Act of 2012',
       description:
-        'A university-based web app to manage thesis and defense schedules.',
-      image: thesisImage,
-      technologies: ['JavaScript', 'Vite', 'React', 'Firebase', 'SCSS'],
-      demoLink: 'https://thesismanagementsystem-39688.web.app/#/login',
-      codeLink: '#',
+        'A web-app that helps organizations comply with the Data Privacy Act of 2012 in the Philippines, providing resources and tools for data protection.',
+      image: legislationImage,
+      technologies: ['JavaScript', 'Vite', 'TypeScript', 'Groq', 'jsPDF'],
+      demoLink: 'https://legislation.vercel.app',
+      codeLink: 'https://github.com/yop-dev/privacy-ai-assessment',
     },
   ];
 
