@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import profileImage from '../images/JD.jpg';
+// Video path from public folder
 
 const About = () => {
   const controls = useAnimation();
@@ -39,7 +40,7 @@ const About = () => {
   };
 
   return (
-    <section id="about" className="py-20 bg-gray-50 dark:bg-gray-800">
+    <section id="about" className="py-20">
       <div className="container">
         <motion.div
           ref={ref}
@@ -48,9 +49,6 @@ const About = () => {
           variants={containerVariants}
           className="max-w-5xl mx-auto"
         >
-          <motion.h2 className="section-title" variants={itemVariants}>
-            About Me
-          </motion.h2>
 
           <div className="grid gap-10 md:grid-cols-2">
             <motion.div variants={itemVariants} className="flex items-center justify-center">
@@ -79,28 +77,6 @@ const About = () => {
                 Skilled in both collaborative group projects and solo development, I’m passionate 
                 about applying machine learning to real-world problems through practical, scalable solutions.  
               </p>
-              <div className="flex flex-wrap gap-4">
-                <motion.a
-                  href="https://www.linkedin.com/in/joner-de-silva-861575203/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn btn-secondary"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  LinkedIn
-                </motion.a>
-                <motion.a
-                  href="https://github.com/yop-dev"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn btn-secondary"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  GitHub Profile
-                </motion.a>
-              </div>
             </motion.div>
           </div>
         </motion.div>

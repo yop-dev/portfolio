@@ -62,9 +62,9 @@ const OtherProjects = () => {
       demoLink: '#',
     },
     {
-      title: 'Markdown Note Taking App',
-      description: 'A simple markdown note-taking application with local storage and export functionality.',
-      technologies: ['React', 'Marked.js', 'LocalStorage API'],
+      title: 'LegalPal',
+      description: 'A mobile application that has a legal database, case management system, and legal document generator for lawyers.',
+      technologies: ['Angular', 'TypeScript', 'Firebase'],
       codeLink: '#',
       demoLink: '#',
     },
@@ -98,17 +98,14 @@ const OtherProjects = () => {
           Other Noteworthy Projects
         </motion.h2>
 
-        <motion.div
-          ref={ref}
-          variants={containerVariants}
-          initial="hidden"
-          animate={controls}
-          className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
-        >
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {visibleProjects.map((project, index) => (
             <motion.div
-              key={index}
-              variants={itemVariants}
+              key={`${project.title}-${index}`}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
               className="p-6 bg-white rounded-lg shadow-md dark:bg-gray-800 hover:shadow-lg transition-shadow duration-300"
               whileHover={{ y: -5 }}
             >
@@ -153,14 +150,14 @@ const OtherProjects = () => {
               </div>
             </motion.div>
           ))}
-        </motion.div>
+        </div>
 
         {otherProjects.length > 3 && (
           <div className="flex justify-center mt-10">
             <motion.button
               onClick={() => setShowAll(!showAll)}
-              className="btn btn-secondary"
-              whileHover={{ scale: 1.05 }}
+              className="px-8 py-4 font-semibold text-white bg-white bg-opacity-20 backdrop-blur-sm border border-white border-opacity-30 rounded-full hover:bg-opacity-30 hover:border-opacity-50 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50"
+              whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
             >
               {showAll ? 'Show Less' : 'Show More'}

@@ -57,7 +57,7 @@ const Projects = () => {
       codeLink: 'https://github.com/yop-dev/ai-resume-critic',
     },
     {
-      title: 'RA 10173: Data Privacy Act of 2012',
+      title: 'RA 10173: Compliance Checker',
       description:
         'A web-app that helps organizations comply with the Data Privacy Act of 2012 in the Philippines, providing resources and tools for data protection.',
       image: legislationImage,
