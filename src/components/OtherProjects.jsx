@@ -41,11 +41,11 @@ const OtherProjects = () => {
 
   const otherProjects = [
     {
-      title: 'Library Management System',
-      description: 'A system to manage book inventories, user borrowing records, and library operations efficiently.',
-      technologies: ['JavaScript', 'OpenWeather', 'Apache Netbeans', 'HTML', 'CSS'],
-      codeLink: '#',
-      demoLink: '#',
+      title: 'AdShield AI',
+      description: 'Advanced AI text, image, and documents analysis for phishing & scam detection',
+      technologies: ['React', 'FastAPI', 'Supabase', 'HuggingfaceAPI', 'TypeScript'],
+      codeLink: 'https://github.com/yop-dev/adshield-frontend',
+      demoLink: 'https://adshield-frontend.vercel.app',
     },
     {
       title: 'IT Ticketing System',
