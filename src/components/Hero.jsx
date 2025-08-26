@@ -96,19 +96,19 @@ const Hero = () => {
           animate="visible"
         >
           <motion.h1
-            className="mb-6 text-4xl font-bold leading-tight text-gray-900 sm:text-5xl md:text-6xl dark:text-white"
+            className="mb-4 sm:mb-6 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-gray-900 dark:text-white px-4"
             variants={itemVariants}
           >
             <span className="text-blue-600 dark:text-blue-400">Joner De Silva</span>
           </motion.h1>
           
           <motion.div
-            className="mb-8 text-xl text-gray-700 sm:text-2xl dark:text-gray-300"
+            className="mb-6 sm:mb-8 text-lg sm:text-xl md:text-2xl text-gray-700 dark:text-gray-300 px-4"
             variants={itemVariants}
           >
             <span className="block">BS Computer Science</span>
             <motion.span
-              className="block text-blue-600 dark:text-blue-400"
+              className="block text-blue-600 dark:text-blue-400 text-base sm:text-lg md:text-xl"
               animate={{ opacity: [0, 1, 1, 0] }}
               transition={{
                 duration: 3,
@@ -120,7 +120,7 @@ const Hero = () => {
             </motion.span>
           </motion.div>
           
-          <motion.div variants={itemVariants} className="flex flex-wrap justify-center gap-6 mb-8">
+          <motion.div variants={itemVariants} className="flex flex-wrap justify-center gap-3 sm:gap-4 md:gap-6 mb-6 sm:mb-8 px-4">
             <Link
               to="about"
               spy={true}
@@ -129,7 +129,7 @@ const Hero = () => {
               duration={500}
             >
               <motion.button
-                className="px-8 py-4 font-semibold text-white bg-white bg-opacity-20 backdrop-blur-sm border border-white border-opacity-30 rounded-full hover:bg-opacity-30 hover:border-opacity-50 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50 dark:text-gray-200 dark:border-gray-300 dark:border-opacity-30 dark:hover:border-opacity-50"
+                className="px-4 sm:px-6 md:px-8 py-2 sm:py-3 md:py-4 font-semibold text-white bg-white bg-opacity-20 backdrop-blur-sm border border-white border-opacity-30 rounded-full hover:bg-opacity-30 hover:border-opacity-50 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50 dark:text-gray-200 dark:border-gray-300 dark:border-opacity-30 dark:hover:border-opacity-50 text-sm sm:text-base"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -145,7 +145,7 @@ const Hero = () => {
               duration={500}
             >
               <motion.button
-                className="px-8 py-4 font-semibold text-white bg-white bg-opacity-20 backdrop-blur-sm border border-white border-opacity-30 rounded-full hover:bg-opacity-30 hover:border-opacity-50 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50 dark:text-gray-200 dark:border-gray-300 dark:border-opacity-30 dark:hover:border-opacity-50"
+                className="px-4 sm:px-6 md:px-8 py-2 sm:py-3 md:py-4 font-semibold text-white bg-white bg-opacity-20 backdrop-blur-sm border border-white border-opacity-30 rounded-full hover:bg-opacity-30 hover:border-opacity-50 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50 dark:text-gray-200 dark:border-gray-300 dark:border-opacity-30 dark:hover:border-opacity-50 text-sm sm:text-base"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -161,7 +161,7 @@ const Hero = () => {
               duration={500}
             >
               <motion.button
-                className="px-8 py-4 font-semibold text-white bg-blue-600 bg-opacity-90 backdrop-blur-sm border border-blue-500 border-opacity-50 rounded-full hover:bg-opacity-100 hover:border-opacity-70 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-50 shadow-lg hover:shadow-xl"
+                className="px-4 sm:px-6 md:px-8 py-2 sm:py-3 md:py-4 font-semibold text-white bg-blue-600 bg-opacity-90 backdrop-blur-sm border border-blue-500 border-opacity-50 rounded-full hover:bg-opacity-100 hover:border-opacity-70 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-50 shadow-lg hover:shadow-xl text-sm sm:text-base"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -177,11 +177,11 @@ const Hero = () => {
               duration={500}
             >
               <motion.button
-                className="px-8 py-4 font-semibold text-white bg-white bg-opacity-20 backdrop-blur-sm border border-white border-opacity-30 rounded-full hover:bg-opacity-30 hover:border-opacity-50 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50 dark:text-gray-200 dark:border-gray-300 dark:border-opacity-30 dark:hover:border-opacity-50 flex items-center gap-2"
+                className="px-4 sm:px-6 md:px-8 py-2 sm:py-3 md:py-4 font-semibold text-white bg-white bg-opacity-20 backdrop-blur-sm border border-white border-opacity-30 rounded-full hover:bg-opacity-30 hover:border-opacity-50 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50 dark:text-gray-200 dark:border-gray-300 dark:border-opacity-30 dark:hover:border-opacity-50 flex items-center gap-1 sm:gap-2 text-sm sm:text-base"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
               >
-                Contact <FiArrowRight />
+                Contact <FiArrowRight className="w-3 h-3 sm:w-4 sm:h-4" />
               </motion.button>
             </Link>
           </motion.div>

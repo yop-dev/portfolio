@@ -3,12 +3,13 @@ import Hero from './components/Hero';
 import About from './components/About';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
-import OtherProjects from './components/OtherProjects';
 import Contact from './components/Contact';
 import CursorParticles from './components/CursorParticles';
+import TerminalLoader from './components/TerminalLoader';
 
 function App() {
   const [showParticles, setShowParticles] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     // Always use dark mode
@@ -30,18 +31,26 @@ function App() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const handleLoadingComplete = () => {
+    setIsLoading(false);
+  };
 
   return (
     <div className="min-h-screen transition-colors duration-300 bg-white dark:bg-gray-900">
-      <CursorParticles isActive={showParticles} />
-      <main>
-        <Hero />
-        <About />
-        <Skills />
-        <Projects />
-        <OtherProjects />
-        <Contact />
-      </main>
+      {isLoading && <TerminalLoader onComplete={handleLoadingComplete} />}
+      
+      {!isLoading && (
+        <>
+          <CursorParticles isActive={showParticles} />
+          <main>
+            <Hero />
+            <About />
+            <Skills />
+            <Projects />
+            <Contact />
+          </main>
+        </>
+      )}
     </div>
   );
 }
