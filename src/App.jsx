@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import Hero from './components/Hero';
 import About from './components/About';
 import Skills from './components/Skills';
+import CurrentlyWorkingOn from './components/CurrentlyWorkingOn';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
 import CursorParticles from './components/CursorParticles';
@@ -46,6 +47,7 @@ function App() {
             <Hero />
             <About />
             <Skills />
+            <CurrentlyWorkingOn />
             <Projects />
             <Contact />
           </main>
