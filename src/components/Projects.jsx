@@ -7,6 +7,8 @@ import interviewerImage from '../images/interviewer.png';
 import thesisImage from '../images/thesis.png';
 import legislationImage from '../images/legislation.png';
 import adshieldImage from '../images/adshieldAI.png';
+import eventsImage from '../images/events.png';
+
 
 
 const Projects = () => {
@@ -59,6 +61,15 @@ const Projects = () => {
       technologies: ['Node.js', 'React', 'Next.js', 'Groq', 'Vercel CLI'],
       demoLink: 'https://career-launch-ai.vercel.app',
       codeLink: 'https://github.com/yop-dev/ai-resume-critic',
+    },
+      {
+      title: 'Event Scheduler',
+      description:
+        'A web application built with Ruby on Rails, and PostgreSQL that allows users to create, manage, and share events with a user-friendly interface and robust backend functionality.',
+      image: eventsImage,
+      technologies: ['Ruby on Rails', 'Postgresql', 'Javascript', 'HTML5', 'CSS3'],
+      demoLink: 'events-app-p6og.onrender.com',
+      codeLink: 'https://github.com/yop-dev/rails-events-app',
     },
     {
       title: 'AdShield AI',
