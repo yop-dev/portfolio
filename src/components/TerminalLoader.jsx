@@ -8,12 +8,12 @@ const TerminalLoader = ({ onComplete }) => {
   const [isComplete, setIsComplete] = useState(false);
 
   const terminalLines = [
-    { text: "$ initializing portfolio...", delay: 20 },
-    { text: "$ loading components...", delay: 20 },
-    { text: "$ fetching projects data...", delay: 20 },
-    { text: "$ setting up animations...", delay: 20 },
-    { text: "$ portfolio ready!", delay: 50 },
-    { text: "$ welcome to joner's portfolio", delay: 50 }
+    { text: "$ initializing portfolio...", delay: 10 },
+    { text: "$ loading components...", delay: 10 },
+    { text: "$ fetching projects data...", delay: 10 },
+    { text: "$ setting up animations...", delay: 10 },
+    { text: "$ portfolio ready!", delay: 10 },
+    { text: "$ welcome to joner's portfolio", delay: 10 }
   ];
 
   // Cursor blinking effect
@@ -32,8 +32,8 @@ const TerminalLoader = ({ onComplete }) => {
         setIsComplete(true);
         setTimeout(() => {
           onComplete();
-        }, 300);
-      }, 200);
+        }, 50);
+      }, 50);
       return;
     }
 
@@ -43,7 +43,7 @@ const TerminalLoader = ({ onComplete }) => {
     if (currentChar < currentLineText.length) {
       const timeout = setTimeout(() => {
         setCurrentChar(prev => prev + 1);
-      }, 20); // Faster typing speed
+      }, 5); // Much faster typing speed
 
       return () => clearTimeout(timeout);
     } else {
