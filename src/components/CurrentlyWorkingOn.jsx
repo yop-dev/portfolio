@@ -54,7 +54,7 @@ const CurrentlyWorkingOn = () => {
       title: "RetroLens",
       description: "Social media app that lets users share and explore nostalgic photos with vintage filters, fostering a community around cherished memories and retro aesthetics.",
       progress: 40,
-      techStack: ["React", "Node.js", "TypeScript", "FastAPI," "Clerk"],
+      techStack: ["React", "Node.js", "TypeScript", "FastAPI", "Clerk"],
       status: "In Development"
     },
   ];
