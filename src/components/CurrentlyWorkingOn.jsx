@@ -49,16 +49,14 @@ const CurrentlyWorkingOn = () => {
       techStack: ["React", "Node.js", "OpenAI", "Python"],
       status: "In Development"
     },
-    // Add more projects as needed
-    // {
-    //   id: 2,
-    //   title: "Another Project",
-    //   description: "Description of another project",
-    //   progress: 45,
-    //   demoUrl: "https://another-demo.com",
-    //   techStack: ["Vue.js", "Python"],
-    //   status: "Planning"
-    // }
+    {
+      id: 2,
+      title: "RetroLens",
+      description: "Social media app that lets users share and explore nostalgic photos with vintage filters, fostering a community around cherished memories and retro aesthetics.",
+      progress: 40,
+      techStack: ["React", "Node.js", "TypeScript", "FastAPI, Clerk"],
+      status: "In Development"
+    },
   ];
 
   const getProgressColor = (progress) => {
@@ -157,18 +155,20 @@ const CurrentlyWorkingOn = () => {
                         </div>
                       </div>
 
-                      {/* Demo Link */}
-                      <motion.a
-                        href={project.demoUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg hover:from-blue-600 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl"
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                      >
-                        <FiExternalLink className="w-4 h-4" />
-                        View Demo
-                      </motion.a>
+                      {/* Demo Link - Only show if demoUrl exists */}
+                      {project.demoUrl && (
+                        <motion.a
+                          href={project.demoUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg hover:from-blue-600 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl"
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.95 }}
+                        >
+                          <FiExternalLink className="w-4 h-4" />
+                          View Demo
+                        </motion.a>
+                      )}
                     </div>
                   </div>
                 </div>

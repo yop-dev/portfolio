@@ -8,12 +8,12 @@ const TerminalLoader = ({ onComplete }) => {
   const [isComplete, setIsComplete] = useState(false);
 
   const terminalLines = [
-    { text: "$ initializing portfolio...", delay: 150 },
-    { text: "$ loading components...", delay: 150 },
-    { text: "$ fetching projects data...", delay: 150 },
-    { text: "$ setting up animations...", delay: 150 },
-    { text: "$ portfolio ready!", delay: 200 },
-    { text: "$ welcome to joner's portfolio", delay: 300 }
+    { text: "$ initializing portfolio...", delay: 20 },
+    { text: "$ loading components...", delay: 20 },
+    { text: "$ fetching projects data...", delay: 20 },
+    { text: "$ setting up animations...", delay: 20 },
+    { text: "$ portfolio ready!", delay: 50 },
+    { text: "$ welcome to joner's portfolio", delay: 50 }
   ];
 
   // Cursor blinking effect

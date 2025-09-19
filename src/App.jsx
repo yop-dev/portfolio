@@ -4,6 +4,7 @@ import About from './components/About';
 import Skills from './components/Skills';
 import CurrentlyWorkingOn from './components/CurrentlyWorkingOn';
 import Projects from './components/Projects';
+import Experience from './components/Experience';
 import Contact from './components/Contact';
 import CursorParticles from './components/CursorParticles';
 import TerminalLoader from './components/TerminalLoader';
@@ -49,6 +50,7 @@ function App() {
             <Skills />
             <CurrentlyWorkingOn />
             <Projects />
+            <Experience />
             <Contact />
           </main>
         </>

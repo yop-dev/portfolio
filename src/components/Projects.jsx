@@ -8,11 +8,13 @@ import thesisImage from '../images/thesis.png';
 import legislationImage from '../images/legislation.png';
 import adshieldImage from '../images/adshieldAI.png';
 import eventsImage from '../images/events.png';
+import ticketingImage from '../images/ticketing.png';
+
 
 
 
 const Projects = () => {
-  const [currentProject, setCurrentProject] = useState(0);
+  const [focusedProject, setFocusedProject] = useState(2); // Start with middle project focused
   const [isImageModalOpen, setIsImageModalOpen] = useState(false);
   const controls = useAnimation();
   const [ref, inView] = useInView({
@@ -39,7 +41,7 @@ const Projects = () => {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, ease: 'easeOut' },
+      transition: { duration: 0.1, ease: 'easeOut' },
     },
   };
 
@@ -72,6 +74,13 @@ const Projects = () => {
       codeLink: 'https://github.com/yop-dev/rails-events-app',
     },
     {
+      title: 'IT Ticketing System',
+      description:
+        'Ticketing system for IT support requests, enabling users to submit, track, and manage their IT issues efficiently with status updates and communication features.',
+      image: ticketingImage,
+      technologies: ['Visual Basic', 'Microsoft Access'],
+    },
+    {
       title: 'AdShield AI',
       description: 'Advanced AI text, image, and documents analysis for phishing & scam detection with real-time threat assessment and comprehensive security reporting.',
       image: adshieldImage, 
@@ -99,16 +108,16 @@ const Projects = () => {
     },
   ];
 
+  const focusProject = (index) => {
+    setFocusedProject(index);
+  };
+
   const nextProject = () => {
-    setCurrentProject((prev) => (prev + 1) % projects.length);
+    setFocusedProject((prev) => (prev + 1) % projects.length);
   };
 
   const prevProject = () => {
-    setCurrentProject((prev) => (prev - 1 + projects.length) % projects.length);
-  };
-
-  const goToProject = (index) => {
-    setCurrentProject(index);
+    setFocusedProject((prev) => (prev - 1 + projects.length) % projects.length);
   };
 
   const openImageModal = () => {
@@ -122,131 +131,197 @@ const Projects = () => {
   return (
     <section id="projects" className="py-12 sm:py-20 bg-gray-50 dark:bg-gray-900">
       <div className="container mx-auto px-4 sm:px-6">
-        <motion.h2
-          className="text-2xl sm:text-3xl font-bold text-center text-gray-800 dark:text-white mb-8 sm:mb-12"
+        <motion.div
+          className="text-center mb-8 sm:mb-12"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          Featured Projects
-        </motion.h2>
+          <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 dark:text-white mb-4">
+            Featured Projects
+          </h2>
+          <div className="w-16 sm:w-20 md:w-24 h-0.5 sm:h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto rounded-full"></div>
+        </motion.div>
 
+        {/* Overlapping Carousel */}
         <motion.div
           ref={ref}
           variants={containerVariants}
           initial="hidden"
           animate={controls}
-          className="max-w-4xl mx-auto"
+          className="relative max-w-7xl mx-auto overflow-hidden"
         >
-          {/* Project Display */}
-          <motion.div
-            key={currentProject}
-            variants={itemVariants}
-            initial="hidden"
-            animate="visible"
-            className="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300"
+          {/* Navigation Arrow - Left */}
+          <motion.button
+            onClick={prevProject}
+            className="absolute left-1 sm:left-2 md:left-4 top-1/2 transform -translate-y-1/2 z-20 p-2 sm:p-3 text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
           >
-            {/* Image Container */}
-            <div className="relative bg-gray-100 dark:bg-gray-700 group">
-              <img
-                src={projects[currentProject].image}
-                alt={projects[currentProject].title}
-                className="w-full h-48 sm:h-64 md:h-80 object-contain p-4 sm:p-6 transition-transform duration-500 group-hover:scale-105 cursor-pointer"
-                onClick={openImageModal}
-              />
-            </div>
+            <FiChevronLeft className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" />
+          </motion.button>
 
-            {/* Text Content */}
-            <div className="p-4 sm:p-6 md:p-8">
-              <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-3 sm:mb-4">
-                {projects[currentProject].title}
-              </h3>
-              <p className="text-gray-600 dark:text-gray-300 text-sm sm:text-base mb-4 sm:mb-6 leading-relaxed">
-                {projects[currentProject].description}
-              </p>
-              <div className="flex flex-wrap gap-2 sm:gap-3 mb-4 sm:mb-6">
-                {projects[currentProject].technologies.map((tech, i) => (
-                  <span
-                    key={i}
-                    className="text-xs sm:text-sm font-medium bg-blue-100 text-blue-800 px-2 sm:px-3 py-1 rounded-full dark:bg-blue-900 dark:text-blue-200"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-              <div className="flex flex-col sm:flex-row gap-3 sm:gap-6">
-                {projects[currentProject].demoLink && (
-                  <motion.a
-                    href={projects[currentProject].demoLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="px-4 sm:px-6 py-2 sm:py-3 font-semibold text-white bg-blue-600 bg-opacity-90 backdrop-blur-sm border border-blue-500 border-opacity-50 rounded-full hover:bg-opacity-100 hover:border-opacity-70 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-50 text-center text-sm sm:text-base"
-                    whileHover={{ scale: 1.05, y: -2 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    View Demo
-                  </motion.a>
-                )}
-                {projects[currentProject].codeLink && (
-                  <motion.a
-                    href={projects[currentProject].codeLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="px-4 sm:px-6 py-2 sm:py-3 font-semibold text-white bg-white bg-opacity-20 backdrop-blur-sm border border-white border-opacity-30 rounded-full hover:bg-opacity-30 hover:border-opacity-50 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50 text-center text-sm sm:text-base"
-                    whileHover={{ scale: 1.05, y: -2 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    View Code
-                  </motion.a>
-                )}
-              </div>
-            </div>
-          </motion.div>
+          {/* Carousel Container */}
+          <div className="relative flex items-center justify-center min-h-[400px] sm:min-h-[500px] md:min-h-[600px] px-8 sm:px-12 md:px-16">
+            {projects.map((project, index) => {
+              const offset = index - focusedProject;
+              const isFocused = index === focusedProject;
+              const isVisible = Math.abs(offset) <= 1; // Show only one card on each side
+              
+              return (
+                <motion.div
+                  key={index}
+                  className={`absolute cursor-pointer transition-all duration-500 ${
+                    isVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'
+                  }`}
+                  style={{
+                    zIndex: isFocused ? 10 : 5 - Math.abs(offset),
+                  }}
+                  animate={{
+                    x: `${offset * (isFocused ? 0 : window.innerWidth < 640 ? 40 : window.innerWidth < 768 ? 50 : window.innerWidth < 1024 ? 60 : 70)}%`,
+                    scale: isFocused ? 1 : window.innerWidth < 640 ? 0.7 - Math.abs(offset) * 0.15 : 0.8 - Math.abs(offset) * 0.1,
+                    rotateY: isFocused ? 0 : offset * (window.innerWidth < 640 ? -5 : -10),
+                  }}
+                  transition={{
+                    duration: 0.5,
+                    ease: "easeInOut"
+                  }}
+                  onClick={() => focusProject(index)}
+                  whileHover={!isFocused ? { scale: window.innerWidth < 640 ? 0.75 : 0.85 } : {}}
+                >
+                  {/* Project Card */}
+                  <div className={`bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg transition-all duration-500 ${
+                    isFocused 
+                      ? 'w-72 sm:w-80 md:w-[500px] lg:w-[600px] xl:w-[700px] shadow-2xl' 
+                      : 'w-60 sm:w-72 md:w-80 lg:w-96 shadow-md hover:shadow-lg'
+                  }`}>
+                    {/* Image Container */}
+                    <div className="relative bg-gray-100 dark:bg-gray-700 group">
+                      <img
+                        src={project.image}
+                        alt={project.title}
+                        className={`w-full object-contain transition-all duration-500 ${
+                          isFocused 
+                            ? 'h-32 sm:h-40 md:h-56 lg:h-72 xl:h-80 p-3 sm:p-4 group-hover:scale-105' 
+                            : 'h-24 sm:h-28 md:h-32 lg:h-40 p-2 sm:p-3'
+                        }`}
+                        onClick={(e) => {
+                          if (isFocused) {
+                            e.stopPropagation();
+                            openImageModal();
+                          }
+                        }}
+                      />
+                      {!isFocused && (
+                        <div className="absolute inset-0 bg-black bg-opacity-20 transition-opacity duration-300" />
+                      )}
+                    </div>
 
-          {/* Navigation Controls */}
-          <div className="flex items-center justify-center mt-6 sm:mt-8 space-x-4 sm:space-x-6">
-            {/* Previous Button */}
-            <motion.button
-              onClick={prevProject}
-              className="p-2 sm:p-3 text-white bg-white bg-opacity-20 backdrop-blur-sm border border-white border-opacity-30 rounded-full hover:bg-opacity-30 hover:border-opacity-50 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <FiChevronLeft className="w-4 h-4 sm:w-6 sm:h-6" />
-            </motion.button>
+                    {/* Content */}
+                    <div className={`transition-all duration-500 ${
+                      isFocused ? 'p-3 sm:p-4 md:p-6' : 'p-2 sm:p-3 md:p-4'
+                    }`}>
+                      <h3 className={`font-bold text-gray-900 dark:text-white mb-2 transition-all duration-300 ${
+                        isFocused ? 'text-lg sm:text-xl md:text-2xl lg:text-2xl xl:text-3xl' : 'text-sm sm:text-base md:text-lg lg:text-xl'
+                      }`}>
+                        {project.title}
+                      </h3>
+                      
+                      {isFocused && (
+                        <motion.div
+                          initial={{ opacity: 0, height: 0 }}
+                          animate={{ opacity: 1, height: 'auto' }}
+                          transition={{ duration: 0.3, delay: 0.2 }}
+                        >
+                          <p className="text-gray-600 dark:text-gray-300 text-sm md:text-base lg:text-base xl:text-lg mb-4 sm:mb-5 leading-relaxed">
+                            {project.description}
+                          </p>
+                          
+                          {/* Technologies */}
+                          <div className="flex flex-wrap gap-2 mb-4 sm:mb-5">
+                            {project.technologies.map((tech, i) => (
+                              <span
+                                key={i}
+                                className="text-xs sm:text-sm font-medium bg-blue-100 text-blue-800 px-2.5 py-1 rounded-full dark:bg-blue-900 dark:text-blue-200"
+                              >
+                                {tech}
+                              </span>
+                            ))}
+                          </div>
+                          
+                          {/* Action Buttons */}
+                          <div className="flex flex-col sm:flex-row gap-3">
+                            {project.demoLink && project.demoLink !== '#' && (
+                              <motion.a
+                                href={project.demoLink}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="px-4 sm:px-6 py-2.5 font-semibold text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition-colors duration-300 text-center text-sm sm:text-base flex items-center justify-center gap-2"
+                                whileHover={{ scale: 1.02 }}
+                                whileTap={{ scale: 0.98 }}
+                                onClick={(e) => e.stopPropagation()}
+                              >
+                                <FiExternalLink className="w-4 h-4" />
+                                View Demo
+                              </motion.a>
+                            )}
+                            {project.codeLink && project.codeLink !== '#' && (
+                              <motion.a
+                                href={project.codeLink}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="px-4 sm:px-6 py-2.5 font-semibold text-gray-700 dark:text-gray-300 bg-gray-200 dark:bg-gray-700 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors duration-300 text-center text-sm sm:text-base flex items-center justify-center gap-2"
+                                whileHover={{ scale: 1.02 }}
+                                whileTap={{ scale: 0.98 }}
+                                onClick={(e) => e.stopPropagation()}
+                              >
+                                <FiGithub className="w-4 h-4" />
+                                View Code
+                              </motion.a>
+                            )}
+                          </div>
+                        </motion.div>
+                      )}
+                    </div>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
 
-            {/* Pagination Dots */}
-            <div className="flex space-x-2 sm:space-x-3">
+          {/* Navigation Arrow - Right */}
+          <motion.button
+            onClick={nextProject}
+            className="absolute right-1 sm:right-2 md:right-4 top-1/2 transform -translate-y-1/2 z-20 p-2 sm:p-3 text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <FiChevronRight className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" />
+          </motion.button>
+
+          {/* Project Indicators */}
+          <div className="flex items-center justify-center mt-6 sm:mt-8">
+            <div className="flex space-x-1.5 sm:space-x-2">
               {projects.map((_, index) => (
                 <motion.button
                   key={index}
-                  onClick={() => goToProject(index)}
-                  className={`w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full transition-all duration-300 ${
-                    index === currentProject
+                  onClick={() => focusProject(index)}
+                  className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-all duration-300 ${
+                    index === focusedProject
                       ? 'bg-blue-600 scale-125'
-                      : 'bg-white bg-opacity-40 hover:bg-opacity-60'
+                      : 'bg-gray-300 dark:bg-gray-600 hover:bg-gray-400 dark:hover:bg-gray-500'
                   }`}
                   whileHover={{ scale: 1.2 }}
                   whileTap={{ scale: 0.9 }}
                 />
               ))}
             </div>
-
-            {/* Next Button */}
-            <motion.button
-              onClick={nextProject}
-              className="p-2 sm:p-3 text-white bg-white bg-opacity-20 backdrop-blur-sm border border-white border-opacity-30 rounded-full hover:bg-opacity-30 hover:border-opacity-50 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <FiChevronRight className="w-4 h-4 sm:w-6 sm:h-6" />
-            </motion.button>
           </div>
 
           {/* Project Counter */}
           <div className="text-center mt-3 sm:mt-4">
             <span className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">
-              {currentProject + 1} of {projects.length}
+              {focusedProject + 1} of {projects.length}
             </span>
           </div>
         </motion.div>
@@ -283,16 +358,16 @@ const Projects = () => {
               onClick={(e) => e.stopPropagation()}
             >
             <img
-              src={projects[currentProject].image}
-              alt={projects[currentProject].title}
+              src={projects[focusedProject].image}
+              alt={projects[focusedProject].title}
               className="w-full h-full object-contain rounded-lg shadow-2xl"
             />
             
             {/* Action Buttons */}
             <div className="absolute top-2 sm:top-4 left-2 sm:left-4 flex space-x-2 sm:space-x-3">
-              {projects[currentProject].demoLink && projects[currentProject].demoLink !== '#' && (
+              {projects[focusedProject].demoLink && projects[focusedProject].demoLink !== '#' && (
                 <motion.a
-                  href={projects[currentProject].demoLink}
+                  href={projects[focusedProject].demoLink}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-1.5 sm:p-2 text-white bg-blue-600 bg-opacity-90 backdrop-blur-sm border border-blue-500 border-opacity-50 rounded-full hover:bg-opacity-100 hover:border-opacity-70 transition-all duration-300 shadow-lg"
@@ -302,9 +377,9 @@ const Projects = () => {
                   <FiExternalLink className="w-3 h-3 sm:w-4 sm:h-4" />
                 </motion.a>
               )}
-              {projects[currentProject].codeLink && projects[currentProject].codeLink !== '#' && (
+              {projects[focusedProject].codeLink && projects[focusedProject].codeLink !== '#' && (
                 <motion.a
-                  href={projects[currentProject].codeLink}
+                  href={projects[focusedProject].codeLink}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-1.5 sm:p-2 text-white bg-gray-800 bg-opacity-90 backdrop-blur-sm border border-gray-600 border-opacity-50 rounded-full hover:bg-opacity-100 hover:border-opacity-70 transition-all duration-300 shadow-lg"
