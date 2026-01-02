@@ -10,11 +10,8 @@ import adshieldImage from '../images/adshieldAI.png';
 import eventsImage from '../images/events.png';
 import ticketingImage from '../images/ticketing.png';
 
-
-
-
 const Projects = () => {
-  const [focusedProject, setFocusedProject] = useState(2); // Start with middle project focused
+  const [focusedProject, setFocusedProject] = useState(0); // Start with middle project focused
   const [isImageModalOpen, setIsImageModalOpen] = useState(false);
   const controls = useAnimation();
   const [ref, inView] = useInView({
