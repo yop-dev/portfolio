@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 
@@ -39,6 +39,7 @@ const Experience = () => {
       period: 'Jun - Jul 2024',
       type: 'On-site',
       technologies: ['Microsoft Access', 'Visual Basic'],
+      url: 'https://www.qpl.com.ph',
     },
     {
       title: 'Web Developer Intern',
@@ -46,6 +47,7 @@ const Experience = () => {
       period: 'Sep 2025 - October 2025',
       type: 'Remote',
       technologies: ['Ruby on Rails', 'GraphQL', 'Vue.js'],
+      url: 'https://chatgenie.ph',
     },
     {
       title: 'Full Stack Developer',
@@ -53,12 +55,13 @@ const Experience = () => {
       period: 'October 2025 - Present',
       type: 'Remote',
       technologies: ['React', 'TypeScript', 'C#', 'SQL'],
+      url: 'https://sports.reelr.app/allevents',
     },
   ];
 
   return (
-    <section 
-      id="experience" 
+    <section
+      id="experience"
       className="py-16 bg-white dark:bg-gray-900"
     >
       <div className="container mx-auto px-6">
@@ -84,13 +87,14 @@ const Experience = () => {
           <motion.div variants={itemVariants} className="relative">
             {/* Timeline Line */}
             <div className="absolute top-16 sm:top-20 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-600"></div>
-            
+
             {/* Experience Items */}
             <div className="flex flex-col sm:flex-row justify-center items-center sm:space-x-8 md:space-x-16 space-y-8 sm:space-y-0 pt-4">
               {experiences.map((exp, index) => (
-                <motion.div 
-                  key={index} 
-                  className="relative text-center w-full max-w-xs sm:w-72 md:w-80"
+                <motion.div
+                  key={index}
+                  className="relative text-center w-full max-w-xs sm:w-72 md:w-80 cursor-pointer group"
+                  onClick={() => window.open(exp.url, '_blank', 'noopener,noreferrer')}
                   whileHover={{ scale: 1.02 }}
                   transition={{ duration: 0.3 }}
                 >
@@ -103,30 +107,36 @@ const Experience = () => {
                       {exp.type}
                     </span>
                   </div>
-                  
+
                   {/* Timeline Dot */}
                   <div className="w-3 h-3 sm:w-4 sm:h-4 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full mx-auto mb-4 sm:mb-6 relative z-10 border-2 border-white dark:border-gray-900 shadow-lg"></div>
-                  
-                  {/* Content Card - Responsive height and padding */}
-                  <div className="bg-white dark:bg-gray-800 rounded-lg p-4 sm:p-6 shadow-lg border border-gray-200 dark:border-gray-700 w-full min-h-[180px] sm:h-48 hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
-                    <div>
+
+                  {/* Glassmorphic Card */}
+                  <div className="relative w-full min-h-[180px] sm:h-48 bg-white/40 dark:bg-gray-800/40 backdrop-blur-md rounded-lg p-4 sm:p-6 shadow-xl border border-white/20 dark:border-gray-700/30 flex flex-col justify-between overflow-hidden">
+                    {/* Hover Overlay */}
+                    <div className="absolute inset-0 bg-blue-600/90 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center rounded-lg z-10">
+                      <span className="text-white font-bold text-lg sm:text-xl">Visit Website</span>
+                    </div>
+
+                    {/* Content */}
+                    <div className="relative z-0">
                       {/* Job Title */}
                       <h3 className="font-bold text-gray-900 dark:text-white text-base sm:text-lg mb-2">
                         {exp.title}
                       </h3>
-                      
+
                       {/* Company */}
                       <p className="text-gray-700 dark:text-gray-300 font-medium mb-3 sm:mb-4 text-sm sm:text-base">
                         {exp.company}
                       </p>
                     </div>
-                    
+
                     {/* Technologies */}
-                    <div className="flex flex-wrap gap-1 justify-center">
+                    <div className="flex flex-wrap gap-1 justify-center relative z-0">
                       {exp.technologies.map((tech, techIndex) => (
                         <span
                           key={techIndex}
-                          className="text-xs px-2 py-1 bg-gradient-to-r from-blue-500/10 to-purple-600/10 text-blue-600 dark:text-blue-400 rounded-md border border-blue-200 dark:border-blue-800"
+                          className="text-xs px-2 py-1 bg-gradient-to-r from-blue-500/10 to-purple-600/10 text-blue-600 dark:text-blue-400 rounded-md border border-blue-200 dark:border-blue-800 backdrop-blur-sm"
                         >
                           {tech}
                         </span>
