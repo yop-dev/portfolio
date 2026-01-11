@@ -65,17 +65,17 @@ const About = () => {
             </motion.div>
 
             <motion.div variants={itemVariants} className="flex flex-col justify-center">
-              <h3 className="mb-4 text-2xl font-bold text-gray-900 dark:text-white">
-                Computer Science Graduate
-              </h3>
               <p className="mb-4 text-gray-700 dark:text-gray-300 text-justify">
-                Dedicated Computer Science graduate from Batangas State University - Alangilan, specializing in building AI-powered web 
-                applications. I have hands-on experience with machine learning workflows, LangChain for building LLM agents, and integrating AI 
-                APIs such as OpenAI, Hugging Face, and Ollama. 
+                I’m a Full Stack Developer with hands-on experience building production-ready web applications 
+                and AI-powered systems. I’ve worked across frontend and backend stacks, developing RESTful APIs, 
+                integrating modern frameworks, and contributing to real-world products used by end users.
               </p>
+
               <p className="mb-6 text-gray-700 dark:text-gray-300 text-justify">
-                Skilled in both collaborative group projects and solo development, I’m passionate 
-                about applying machine learning to real-world problems through practical, scalable solutions.  
+                My background includes building scalable web features using technologies such as React, Vue, Angular, 
+                and Ruby on Rails, as well as integrating AI workflows with tools like LangChain, OpenAI, Hugging Face, 
+                and Groq. I work effectively in both collaborative and independent environments and focus on delivering 
+                practical, maintainable solutions that solve real problems.
               </p>
             </motion.div>
           </div>
