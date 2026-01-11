@@ -52,7 +52,7 @@ const Experience = () => {
       company: 'Reelr Sports',
       period: 'October 2025 - Present',
       type: 'Remote',
-      technologies: ['Ruby on Rails', 'GraphQL', 'Vue.js'],
+      technologies: ['React', 'TypeScript', 'C#', 'SQL'],
     },
   ];
 
