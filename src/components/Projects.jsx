@@ -9,6 +9,7 @@ import adshieldImage from '../images/adshieldAI.png';
 import eventsImage from '../images/events.png';
 import ticketingImage from '../images/ticketing.png';
 import inframeImage from '../images/inframe.png';
+import realtorImage from '../images/realtor-portfolio.png';
 
 const Projects = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
@@ -76,11 +77,28 @@ const Projects = () => {
       codeLink: 'https://github.com/yop-dev/rails-events-app',
     },
     {
+      title: 'Realtor Portfolio',
+      description: 'A luxury minimalist portfolio website for a realtor showcasing properties and services.',
+      image: realtorImage,
+      technologies: ['React', 'Vite', 'Tailwind CSS', 'Framer Motion'],
+      demoLink: 'https://realtor-azure-tau.vercel.app',
+    },
+    {
       title: 'IT Ticketing System',
       description: 'Ticketing system for IT support requests with status tracking and communication features.',
       image: ticketingImage,
       technologies: ['Visual Basic', 'Microsoft Access'],
     },
+    {
+      title: 'Thesis Management System',
+      description:
+        'A comprehensive web-based system for managing thesis projects, tracking student progress, and facilitating communication between students and advisors with document management capabilities.',
+      image: thesisImage,
+      technologies: ['Node.js', 'React', 'Firebase'],
+      demoLink: '#',
+      codeLink: '#',
+    },
+
   ];
 
   const featuredProject = projects.find((p) => p.featured);
