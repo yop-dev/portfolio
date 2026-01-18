@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import Hero from './components/Hero';
-import About from './components/About';
 import Skills from './components/Skills';
 import CurrentlyWorkingOn from './components/CurrentlyWorkingOn';
 import Projects from './components/Projects';
@@ -21,11 +20,11 @@ function App() {
   // Handle scroll to disable particles after Hero section
   useEffect(() => {
     const handleScroll = () => {
-      const aboutSection = document.getElementById('about');
-      if (aboutSection) {
-        const aboutTop = aboutSection.offsetTop;
-        const scrollPosition = window.scrollY + window.innerHeight * 0.5; // Trigger when halfway to about section
-        setShowParticles(scrollPosition < aboutTop);
+      const skillsSection = document.getElementById('skills');
+      if (skillsSection) {
+        const skillsTop = skillsSection.offsetTop;
+        const scrollPosition = window.scrollY + window.innerHeight * 0.5; // Trigger when halfway to skills section
+        setShowParticles(scrollPosition < skillsTop);
       }
     };
 
@@ -40,13 +39,12 @@ function App() {
   return (
     <div className="min-h-screen transition-colors duration-300 bg-white dark:bg-gray-900">
       {isLoading && <TerminalLoader onComplete={handleLoadingComplete} />}
-      
+
       {!isLoading && (
         <>
           <CursorParticles isActive={showParticles} />
           <main>
             <Hero />
-            <About />
             <Skills />
             <CurrentlyWorkingOn />
             <Projects />
