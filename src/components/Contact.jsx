@@ -42,7 +42,7 @@ const Contact = () => {
     {
       name: 'Resume',
       icon: <FiDownload className="w-6 h-6" />,
-      href: '/src/files/Joner De Silva.pdf',
+      href: '/src/files/CV Joner De Silva.pdf',
       download: true,
     },
     {

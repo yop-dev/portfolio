@@ -12,6 +12,7 @@ import inframeImage from '../images/inframe.png';
 
 const Projects = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
+  const [videoError, setVideoError] = useState(false);
 
   const projects = [
     {
@@ -117,13 +118,15 @@ const Projects = () => {
                   }}
                   transition={{ duration: 0.4 }}
                 >
-                  {featuredProject.title === 'InFrame' ? (
+                  {featuredProject.title === 'InFrame' && !videoError ? (
                     <video
                       autoPlay
                       loop
                       muted
                       playsInline
                       className="w-full h-full object-cover"
+                      onError={() => setVideoError(true)}
+                      onLoadedData={() => setVideoError(false)}
                     >
                       <source src="/videos/inFrame.mp4" type="video/mp4" />
                       Your browser does not support the video tag.
@@ -132,7 +135,7 @@ const Projects = () => {
                     <img
                       src={featuredProject.image}
                       alt={featuredProject.title}
-                      className="w-full h-auto max-h-96 object-contain drop-shadow-2xl"
+                      className="w-full h-full object-cover"
                     />
                   )}
                 </motion.div>
