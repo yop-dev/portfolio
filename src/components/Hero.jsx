@@ -135,7 +135,7 @@ const Hero = () => {
                       smooth={true}
                       offset={-70}
                       duration={500}
-                      className={`text-xs sm:text-sm font-medium transition-colors duration-300 cursor-pointer ${activeSection === 'skills' ? 'text-blue-400' : 'text-white hover:text-blue-400'
+                      className={`text-xs sm:text-sm font-medium transition-colors duration-300 cursor-pointer ${activeSection === 'skills' ? 'text-white' : 'text-white hover:text-blue-400'
                         }`}
                     >
                       Skills
@@ -156,7 +156,7 @@ const Hero = () => {
                       smooth={true}
                       offset={-70}
                       duration={500}
-                      className={`text-xs sm:text-sm font-medium transition-colors duration-300 cursor-pointer ${activeSection === 'currently-working' ? 'text-blue-400' : 'text-white hover:text-blue-400'
+                      className={`text-xs sm:text-sm font-medium transition-colors duration-300 cursor-pointer ${activeSection === 'currently-working' ? 'text-white' : 'text-white hover:text-blue-400'
                         }`}
                     >
                       Building
@@ -177,7 +177,7 @@ const Hero = () => {
                       smooth={true}
                       offset={-70}
                       duration={500}
-                      className={`text-xs sm:text-sm font-medium transition-colors duration-300 cursor-pointer ${activeSection === 'projects' ? 'text-blue-400' : 'text-white hover:text-blue-400'
+                      className={`text-xs sm:text-sm font-medium transition-colors duration-300 cursor-pointer ${activeSection === 'projects' ? 'text-white' : 'text-white hover:text-blue-400'
                         }`}
                     >
                       Work
@@ -198,7 +198,7 @@ const Hero = () => {
                       smooth={true}
                       offset={-70}
                       duration={500}
-                      className={`text-xs sm:text-sm font-medium transition-colors duration-300 cursor-pointer ${activeSection === 'experience' ? 'text-blue-400' : 'text-white hover:text-blue-400'
+                      className={`text-xs sm:text-sm font-medium transition-colors duration-300 cursor-pointer ${activeSection === 'experience' ? 'text-white' : 'text-white hover:text-blue-400'
                         }`}
                     >
                       Experience
@@ -219,7 +219,7 @@ const Hero = () => {
                       smooth={true}
                       offset={-70}
                       duration={500}
-                      className={`text-xs sm:text-sm font-medium transition-colors duration-300 cursor-pointer ${activeSection === 'contact' ? 'text-blue-400' : 'text-white hover:text-blue-400'
+                      className={`text-xs sm:text-sm font-medium transition-colors duration-300 cursor-pointer ${activeSection === 'contact' ? 'text-white' : 'text-white hover:text-blue-400'
                         }`}
                     >
                       Contact
