@@ -31,8 +31,8 @@ const Hero = () => {
 
     const observerOptions = {
       root: null,
-      rootMargin: '-20% 0px -20% 0px', // Adjusted to be more balanced
-      threshold: 0.2 // Slightly increased threshold
+      rootMargin: '-15% 0px -35% 0px', // Adjusted to be better for mobile
+      threshold: 0.1 // Lower threshold to detect tall sections on mobile
     };
 
     const observerCallback = (entries) => {
