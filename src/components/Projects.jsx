@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { FiGithub, FiExternalLink, FiArrowUpRight } from 'react-icons/fi';
 import tbImage from '../images/TB.png';
@@ -13,6 +13,17 @@ import inframeImage from '../images/inframe.png';
 const Projects = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const [videoError, setVideoError] = useState(false);
+  const videoRef = useRef(null);
+
+  const handleVideoClick = () => {
+    if (videoRef.current) {
+      if (videoRef.current.paused) {
+        videoRef.current.play();
+      } else {
+        videoRef.current.pause();
+      }
+    }
+  };
 
   const projects = [
     {
@@ -89,7 +100,7 @@ const Projects = () => {
           <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mb-4">
             Featured Projects
           </h2>
-          <div className="w-24 h-1 bg-blue-600 mx-auto rounded-full mb-6"></div>
+          <div className="w-24 h-1 bg-gray-600 mx-auto rounded-full mb-6"></div>
           <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
             A collection of projects showcasing innovation, technical expertise, and problem-solving.
           </p>
@@ -120,13 +131,15 @@ const Projects = () => {
                 >
                   {featuredProject.title === 'InFrame' && !videoError ? (
                     <video
+                      ref={videoRef}
                       autoPlay
                       loop
                       muted
                       playsInline
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover cursor-pointer"
                       onError={() => setVideoError(true)}
                       onLoadedData={() => setVideoError(false)}
+                      onClick={handleVideoClick}
                     >
                       <source src="/videos/inFrame.mp4" type="video/mp4" />
                       Your browser does not support the video tag.

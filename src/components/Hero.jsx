@@ -48,6 +48,10 @@ const Hero = () => {
             preload="auto"
             onError={() => setVideoBgError(true)}
             onLoadedData={() => setVideoBgError(false)}
+            style={{
+              pointerEvents: 'none',
+              objectFit: 'cover'
+            }}
           >
             <source src="/videos/hero-bg-2-cropped.mp4" type="video/mp4" />
             Your browser does not support the video tag.
