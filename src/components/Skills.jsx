@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { 
-  SiReact, SiJavascript, SiPython, SiNodedotjs, SiMongodb, SiMysql, 
+import {
+  SiReact, SiJavascript, SiPython, SiNodedotjs, SiMongodb, SiMysql,
   SiPostgresql, SiDocker, SiKubernetes, SiAmazonaws, SiGit, SiGithub,
   SiHtml5, SiCss3, SiTailwindcss, SiBootstrap, SiExpress, SiDjango,
   SiFlask, SiPhp, SiLaravel, SiFirebase, SiFlutter, SiSwift,
@@ -86,9 +86,9 @@ const Skills = () => {
   ];
 
   return (
-    <section id="skills" className="py-20 overflow-hidden">
+    <section id="skills" className="py-20 bg-white dark:bg-slate-950 overflow-hidden">
       <div className="container">
-        <motion.h2 
+        <motion.h2
           className="mb-4 text-3xl font-bold text-center text-gray-900 sm:text-4xl dark:text-white"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -96,7 +96,7 @@ const Skills = () => {
         >
           My Skills
         </motion.h2>
-        
+
         <motion.p
           className="max-w-2xl mx-auto mb-16 text-center text-gray-600 dark:text-gray-400 text-lg"
           initial={{ opacity: 0, y: 20 }}
@@ -126,13 +126,13 @@ const Skills = () => {
             {[...skills, ...skills].map((skill, index) => (
               <motion.div
                 key={`row1-${index}`}
-                className="flex-shrink-0 flex flex-col items-center justify-center w-32 h-32 bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 group"
+                className="flex-shrink-0 flex flex-col items-center justify-center w-32 h-32 bg-white dark:bg-slate-900 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 group"
                 whileHover={{ scale: 1.1, y: -5 }}
                 style={{
                   boxShadow: `0 4px 20px ${skill.color}20`,
                 }}
               >
-                <div 
+                <div
                   className="text-gray-700 dark:text-gray-300 group-hover:scale-110 transition-transform duration-300"
                   style={{ color: skill.color }}
                 >
@@ -172,7 +172,7 @@ const Skills = () => {
                   boxShadow: `0 4px 20px ${skill.color}20`,
                 }}
               >
-                <div 
+                <div
                   className="text-gray-700 dark:text-gray-300 group-hover:scale-110 transition-transform duration-300"
                   style={{ color: skill.color }}
                 >

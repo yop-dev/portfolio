@@ -71,7 +71,7 @@ const Experience = () => {
   return (
     <section
       id="experience"
-      className="py-20 bg-white dark:bg-gray-900"
+      className="py-20 bg-white dark:bg-slate-950"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
         <motion.div
@@ -109,7 +109,7 @@ const Experience = () => {
 
                   {/* Experience Card */}
                   <motion.div
-                    className="group relative bg-white dark:bg-gray-800 rounded-2xl p-6 sm:p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-200 dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-500 cursor-pointer"
+                    className="group relative bg-gray-50 dark:bg-slate-950 rounded-2xl p-6 sm:p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-200 dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-500 cursor-pointer"
                     onClick={() => window.open(exp.url, '_blank', 'noopener,noreferrer')}
                     whileHover={{ scale: 1.02, y: -4 }}
                   >

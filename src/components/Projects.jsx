@@ -75,7 +75,7 @@ const Projects = () => {
   const regularProjects = projects.filter((p) => !p.featured);
 
   return (
-    <section id="projects" className="py-20 bg-white dark:bg-gray-900">
+    <section id="projects" className="py-20 bg-white dark:bg-slate-950">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         {/* Section Header */}
         <motion.div
