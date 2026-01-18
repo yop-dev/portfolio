@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { motion } from 'framer-motion';
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-scroll';
 import { FiArrowRight } from 'react-icons/fi';
 import profileImage from '../images/JD2.jpg';
@@ -7,6 +7,49 @@ import defaultBg from '../images/def-bg.png';
 
 const Hero = () => {
   const [videoBgError, setVideoBgError] = useState(false);
+  const [activeSection, setActiveSection] = useState('hero');
+
+  useEffect(() => {
+    const sections = ['hero', 'skills', 'currently-working', 'projects', 'experience', 'contact'];
+
+    const observerOptions = {
+      root: null,
+      rootMargin: '-20% 0px -35% 0px', // Triggers when section is near center of viewport
+      threshold: 0.1
+    };
+
+    const observerCallback = (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+    sections.forEach((id) => {
+      const element = document.getElementById(id);
+      if (element) observer.observe(element);
+    });
+
+    // Handle scroll to top specifically
+    const handleScroll = () => {
+      if (window.scrollY < 100) {
+        setActiveSection('hero');
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      sections.forEach((id) => {
+        const element = document.getElementById(id);
+        if (element) observer.unobserve(element);
+      });
+      observer.disconnect();
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   // Animation variants
   const containerVariants = {
@@ -74,48 +117,117 @@ const Hero = () => {
       >
         <div className="container mx-auto px-4 md:px-6">
           <div className="flex justify-center">
-            <div className="flex items-center gap-4 sm:gap-6 lg:gap-8 px-4 sm:px-6 lg:px-8 py-2 lg:py-3 bg-white/10 dark:bg-gray-900/30 backdrop-blur-md rounded-full border border-white/20 dark:border-gray-700/30">
-              <Link
-                to="skills"
-                spy={true}
-                smooth={true}
-                offset={-70}
-                duration={500}
-                className="text-xs sm:text-sm font-medium text-white hover:text-blue-400 transition-colors duration-300 cursor-pointer"
-              >
-                Skills
-              </Link>
-              <Link
-                to="projects"
-                spy={true}
-                smooth={true}
-                offset={-70}
-                duration={500}
-                className="text-xs sm:text-sm font-medium text-white hover:text-blue-400 transition-colors duration-300 cursor-pointer"
-              >
-                Work
-              </Link>
-              <Link
-                to="experience"
-                spy={true}
-                smooth={true}
-                offset={-70}
-                duration={500}
-                className="text-xs sm:text-sm font-medium text-white hover:text-blue-400 transition-colors duration-300 cursor-pointer"
-              >
-                Experience
-              </Link>
-              <Link
-                to="contact"
-                spy={true}
-                smooth={true}
-                offset={-70}
-                duration={500}
-                className="text-xs sm:text-sm font-medium text-white hover:text-blue-400 transition-colors duration-300 cursor-pointer"
-              >
-                Contact
-              </Link>
-            </div>
+            <motion.div
+              layout
+              className="flex items-center gap-4 sm:gap-6 lg:gap-8 px-6 py-3 bg-white/10 dark:bg-gray-900/30 backdrop-blur-md rounded-full border border-white/20 dark:border-gray-700/30 transition-all duration-300"
+            >
+              <AnimatePresence mode="popLayout">
+                {(activeSection === 'hero' || activeSection === 'skills') && (
+                  <motion.div
+                    key="skills"
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.8, width: 0 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <Link
+                      to="skills"
+                      smooth={true}
+                      offset={-70}
+                      duration={500}
+                      className={`text-xs sm:text-sm font-medium transition-colors duration-300 cursor-pointer ${activeSection === 'skills' ? 'text-blue-400' : 'text-white hover:text-blue-400'
+                        }`}
+                    >
+                      Skills
+                    </Link>
+                  </motion.div>
+                )}
+
+                {(activeSection === 'hero' || activeSection === 'currently-working') && (
+                  <motion.div
+                    key="currently-working"
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.8, width: 0 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <Link
+                      to="currently-working"
+                      smooth={true}
+                      offset={-70}
+                      duration={500}
+                      className={`text-xs sm:text-sm font-medium transition-colors duration-300 cursor-pointer ${activeSection === 'currently-working' ? 'text-blue-400' : 'text-white hover:text-blue-400'
+                        }`}
+                    >
+                      Building
+                    </Link>
+                  </motion.div>
+                )}
+
+                {(activeSection === 'hero' || activeSection === 'projects') && (
+                  <motion.div
+                    key="projects"
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.8, width: 0 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <Link
+                      to="projects"
+                      smooth={true}
+                      offset={-70}
+                      duration={500}
+                      className={`text-xs sm:text-sm font-medium transition-colors duration-300 cursor-pointer ${activeSection === 'projects' ? 'text-blue-400' : 'text-white hover:text-blue-400'
+                        }`}
+                    >
+                      Work
+                    </Link>
+                  </motion.div>
+                )}
+
+                {(activeSection === 'hero' || activeSection === 'experience') && (
+                  <motion.div
+                    key="experience"
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.8, width: 0 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <Link
+                      to="experience"
+                      smooth={true}
+                      offset={-70}
+                      duration={500}
+                      className={`text-xs sm:text-sm font-medium transition-colors duration-300 cursor-pointer ${activeSection === 'experience' ? 'text-blue-400' : 'text-white hover:text-blue-400'
+                        }`}
+                    >
+                      Experience
+                    </Link>
+                  </motion.div>
+                )}
+
+                {(activeSection === 'hero' || activeSection === 'contact') && (
+                  <motion.div
+                    key="contact"
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.8, width: 0 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <Link
+                      to="contact"
+                      smooth={true}
+                      offset={-70}
+                      duration={500}
+                      className={`text-xs sm:text-sm font-medium transition-colors duration-300 cursor-pointer ${activeSection === 'contact' ? 'text-blue-400' : 'text-white hover:text-blue-400'
+                        }`}
+                    >
+                      Contact
+                    </Link>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </motion.div>
           </div>
         </div>
       </motion.nav>
