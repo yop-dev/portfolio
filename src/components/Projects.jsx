@@ -200,7 +200,7 @@ const Projects = () => {
                 </div>
 
                 {/* Action Buttons */}
-                <div className="flex flex-wrap gap-4">
+                <div className="flex flex-row gap-4">
                   {featuredProject.demoLink && featuredProject.demoLink !== '#' && (
                     <motion.a
                       href={featuredProject.demoLink}
