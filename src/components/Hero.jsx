@@ -41,19 +41,10 @@ const Hero = () => {
           muted
           playsInline
           preload="auto"
-          style={{
-            filter: 'brightness(0.9) contrast(1.1) saturate(1.2) hue-rotate(10deg)',
-          }}
         >
-          <source src="/videos/hero.mp4" type="video/mp4" />
+          <source src="/videos/hero-bg-2-cropped.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
-
-        {/* Color grading overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-400/25 via-indigo-500/20 to-blue-600/30 mix-blend-overlay" />
-
-        {/* Dark overlay for readability */}
-        <div className="absolute inset-0 bg-gradient-to-br from-gray-900/75 to-blue-900/75" />
       </div>
 
       {/* Minimal Header Navigation */}
