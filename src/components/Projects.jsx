@@ -15,6 +15,7 @@ const Projects = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const [videoError, setVideoError] = useState(false);
   const videoRef = useRef(null);
+  const [showAll, setShowAll] = useState(false);
 
   const handleVideoClick = () => {
     if (videoRef.current) {
@@ -231,9 +232,9 @@ const Projects = () => {
           </div>
         </motion.div>
 
-        {/* Regular Projects - Bento Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {regularProjects.map((project, index) => (
+        {/* Other Projects Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {regularProjects.slice(0, showAll ? regularProjects.length : 3).map((project, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 30 }}
@@ -332,6 +333,26 @@ const Projects = () => {
             </motion.div>
           ))}
         </div>
+
+        {/* Show More Button */}
+        {regularProjects.length > 4 && (
+          <div className="flex justify-center mt-12">
+            <motion.button
+              onClick={() => setShowAll(!showAll)}
+              className="inline-flex items-center gap-2 px-8 py-4 bg-white/10 hover:bg-white/20 backdrop-blur-md text-white font-semibold rounded-xl border border-white/30 hover:border-white/50 transition-all duration-300 shadow-lg hover:shadow-xl"
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              {showAll ? 'Show Less' : 'Show More'}
+              <motion.span
+                animate={{ rotate: showAll ? 180 : 0 }}
+                transition={{ duration: 0.3 }}
+              >
+                ↓
+              </motion.span>
+            </motion.button>
+          </div>
+        )}
       </div>
     </section>
   );
