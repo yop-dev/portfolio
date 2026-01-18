@@ -80,7 +80,7 @@ const Contact = () => {
           <motion.h2 className="mb-4 sm:mb-6 text-2xl sm:text-3xl font-bold text-center text-gray-900 sm:text-4xl dark:text-white" variants={itemVariants}>
             Get In Touch
           </motion.h2>
-
+          <div className="w-24 h-1 bg-gray-600 mx-auto rounded-full mb-6"></div>
           <motion.p
             className="max-w-xl mx-auto mb-8 sm:mb-12 text-center text-sm sm:text-base text-gray-600 dark:text-gray-400 px-4"
             variants={itemVariants}
