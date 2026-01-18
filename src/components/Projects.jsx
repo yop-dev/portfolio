@@ -52,20 +52,6 @@ const Projects = () => {
       codeLink: 'https://github.com/yop-dev/ai-resume-critic',
     },
     {
-      title: 'Event Scheduler',
-      description: 'A web application built with Ruby on Rails and PostgreSQL for creating and managing events.',
-      image: eventsImage,
-      technologies: ['Ruby on Rails', 'Postgresql', 'Javascript', 'HTML5', 'CSS3'],
-      demoLink: 'events-app-p6og.onrender.com',
-      codeLink: 'https://github.com/yop-dev/rails-events-app',
-    },
-    {
-      title: 'IT Ticketing System',
-      description: 'Ticketing system for IT support requests with status tracking and communication features.',
-      image: ticketingImage,
-      technologies: ['Visual Basic', 'Microsoft Access'],
-    },
-    {
       title: 'AdShield AI',
       description: 'Advanced AI analysis for phishing & scam detection with real-time threat assessment.',
       image: adshieldImage,
@@ -80,6 +66,20 @@ const Projects = () => {
       technologies: ['Flask', 'Render', 'Pytorch', 'Pandas', 'Numpy'],
       demoLink: 'https://tb-0.onrender.com',
       codeLink: 'https://github.com/yop-dev/tb-cough-detection',
+    },
+    {
+      title: 'Event Scheduler',
+      description: 'A web application built with Ruby on Rails and PostgreSQL for creating and managing events.',
+      image: eventsImage,
+      technologies: ['Ruby on Rails', 'Postgresql', 'Javascript', 'HTML5', 'CSS3'],
+      demoLink: 'events-app-p6og.onrender.com',
+      codeLink: 'https://github.com/yop-dev/rails-events-app',
+    },
+    {
+      title: 'IT Ticketing System',
+      description: 'Ticketing system for IT support requests with status tracking and communication features.',
+      image: ticketingImage,
+      technologies: ['Visual Basic', 'Microsoft Access'],
     },
   ];
 
