@@ -148,7 +148,7 @@ const Projects = () => {
           transition={{ duration: 0.7 }}
         >
           <div
-            className="group relative bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900 rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500"
+            className="group relative bg-gradient-to-br from-gray-50 to-gray-100 dark:from-slate-900 dark:to-slate-950 rounded-3xl overflow-hidden shadow-2xl transition-all duration-500 border border-blue-500/20 hover:border-blue-500/40 hover:shadow-blue-500/10"
             onMouseEnter={() => setHoveredIndex('featured')}
             onMouseLeave={() => setHoveredIndex(null)}
           >
