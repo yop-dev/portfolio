@@ -94,16 +94,16 @@ const Skills = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          My Skills
+          Tools and Frameworks
         </motion.h2>
-
+        <div className="w-24 h-1 bg-gray-600 mx-auto rounded-full mb-6"></div>
         <motion.p
           className="max-w-2xl mx-auto mb-16 text-center text-gray-600 dark:text-gray-400 text-lg"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          Tools and technologies I frequently use
+          Technologies I frequently use
         </motion.p>
 
         {/* First Marquee Row - Left to Right */}
