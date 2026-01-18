@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { FiExternalLink, FiCode } from 'react-icons/fi';
+import { FiExternalLink, FiZap } from 'react-icons/fi';
 
 const CurrentlyWorkingOn = () => {
   const controls = useAnimation();
@@ -38,7 +38,6 @@ const CurrentlyWorkingOn = () => {
     },
   };
 
-  // You can easily modify this array to add/update your current projects
   const currentProjects = [
     {
       id: 1,
@@ -60,132 +59,134 @@ const CurrentlyWorkingOn = () => {
   ];
 
   const getProgressColor = (progress) => {
-    if (progress >= 80) return 'from-green-400 to-green-600';
-    if (progress >= 60) return 'from-blue-400 to-blue-600';
-    if (progress >= 40) return 'from-yellow-400 to-yellow-600';
-    return 'from-red-400 to-red-600';
-  };
-
-  const getStatusColor = (status) => {
-    switch (status.toLowerCase()) {
-      case 'in development': return 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300';
-      case 'planning': return 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-300';
-      case 'testing': return 'bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-300';
-      default: return 'bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300';
-    }
+    if (progress >= 80) return 'text-green-500';
+    if (progress >= 60) return 'text-blue-500';
+    if (progress >= 40) return 'text-yellow-500';
+    return 'text-red-500';
   };
 
   return (
-    <section id="currently-working" className="py-20 bg-gray-50 dark:bg-gray-800/50">
-      <div className="container">
+    <section id="currently-working" className="py-20 bg-white dark:bg-slate-950">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           ref={ref}
           initial="hidden"
           animate={controls}
           variants={containerVariants}
-          className="max-w-4xl mx-auto"
+          className="max-w-6xl mx-auto"
         >
-          <motion.h2 
-            className="mb-4 text-3xl font-bold text-center text-gray-900 sm:text-4xl dark:text-white"
-            variants={itemVariants}
-          >
-            Currently Working On
-          </motion.h2>
-          
-          <motion.p
-            className="max-w-2xl mx-auto mb-12 text-center text-gray-600 dark:text-gray-400 text-lg"
-            variants={itemVariants}
-          >
-            Projects I'm actively developing and building
-          </motion.p>
+          {/* Section Header */}
+          <motion.div variants={itemVariants} className="text-center mb-16">
+            <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+              Currently Building
+            </h2>
+            <div className="w-24 h-1 bg-gray-600 mx-auto rounded-full mb-6"></div>
+            <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+              Projects I'm actively developing and bringing to life
+            </p>
+          </motion.div>
 
-          <div className="space-y-6">
+          {/* Projects Grid */}
+          <div className="grid md:grid-cols-2 gap-8">
             {currentProjects.map((project) => (
               <motion.div
                 key={project.id}
                 variants={itemVariants}
-                className="relative overflow-hidden bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-700"
+                className="group relative bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-200 dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-500 overflow-hidden"
+                whileHover={{ y: -8 }}
               >
-                <div className="p-6 sm:p-8">
-                  <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
+                {/* Glow Effect */}
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/0 to-purple-500/0 group-hover:from-blue-500/5 group-hover:to-purple-500/5 transition-all duration-300 rounded-2xl"></div>
+
+                <div className="relative z-10">
+                  {/* Header with Status */}
+                  <div className="flex items-start justify-between mb-4">
                     <div className="flex-1">
-                      <div className="flex items-center gap-3 mb-3">
-                        <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
-                          {project.title}
-                        </h3>
-                        <span className={`px-2 py-1 text-xs font-medium rounded-full ${getStatusColor(project.status)}`}>
-                          {project.status}
+                      <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                        {project.title}
+                      </h3>
+                      <span className="inline-flex items-center gap-1.5 px-3 py-1 text-xs font-semibold bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-full">
+                        <FiZap className="w-3 h-3" />
+                        {project.status}
+                      </span>
+                    </div>
+
+                    {/* Circular Progress */}
+                    <div className="relative w-16 h-16">
+                      <svg className="w-16 h-16 transform -rotate-90">
+                        <circle
+                          cx="32"
+                          cy="32"
+                          r="28"
+                          stroke="currentColor"
+                          strokeWidth="4"
+                          fill="none"
+                          className="text-gray-200 dark:text-gray-700"
+                        />
+                        <motion.circle
+                          cx="32"
+                          cy="32"
+                          r="28"
+                          stroke="currentColor"
+                          strokeWidth="4"
+                          fill="none"
+                          strokeLinecap="round"
+                          className={getProgressColor(project.progress)}
+                          initial={{ strokeDasharray: "0 176" }}
+                          animate={{ strokeDasharray: `${(project.progress / 100) * 176} 176` }}
+                          transition={{ duration: 1.5, ease: "easeOut", delay: 0.3 }}
+                        />
+                      </svg>
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <span className="text-sm font-bold text-gray-900 dark:text-white">
+                          {project.progress}%
                         </span>
                       </div>
-                      
-                      <p className="text-gray-600 dark:text-gray-400 mb-4">
-                        {project.description}
-                      </p>
-
-                      <div className="flex flex-wrap gap-2 mb-4">
-                        {project.techStack.map((tech, index) => (
-                          <span
-                            key={index}
-                            className="px-3 py-1 text-xs font-medium bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full"
-                          >
-                            {tech}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-
-                    <div className="flex flex-col items-end gap-4 min-w-[200px]">
-                      {/* Progress Section */}
-                      <div className="w-full">
-                        <div className="flex items-center justify-between mb-2">
-                          <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
-                            Progress
-                          </span>
-                          <span className="text-sm font-bold text-gray-900 dark:text-white">
-                            {project.progress}%
-                          </span>
-                        </div>
-                        <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                          <motion.div
-                            className={`h-2 rounded-full bg-gradient-to-r ${getProgressColor(project.progress)}`}
-                            initial={{ width: 0 }}
-                            animate={{ width: `${project.progress}%` }}
-                            transition={{ duration: 1.5, ease: 'easeOut', delay: 0.5 }}
-                          />
-                        </div>
-                      </div>
-
-                      {/* Demo Link - Only show if demoUrl exists */}
-                      {project.demoUrl && (
-                        <motion.a
-                          href={project.demoUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-gradient-to-r from-gray-500 to-gray-600 rounded-lg hover:from-gray-600 hover:to-gray-700 transition-all duration-300 shadow-lg hover:shadow-xl"
-                          whileHover={{ scale: 1.05 }}
-                          whileTap={{ scale: 0.95 }}
-                        >
-                          <FiExternalLink className="w-4 h-4" />
-                          View Demo
-                        </motion.a>
-                      )}
                     </div>
                   </div>
-                </div>
 
-                {/* Subtle gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-blue-500/5 pointer-events-none" />
+                  {/* Description */}
+                  <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-6">
+                    {project.description}
+                  </p>
+
+                  {/* Tech Stack */}
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {project.techStack.map((tech, index) => (
+                      <span
+                        key={index}
+                        className="px-3 py-1 text-xs font-medium bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+
+                  {/* Demo Link */}
+                  {project.demoUrl && (
+                    <motion.a
+                      href={project.demoUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 px-6 py-3 bg-white/10 hover:bg-white/20 backdrop-blur-md text-white border border-white/30 hover:border-white/50 rounded-xl font-semibold text-sm transition-all duration-300 shadow-lg hover:shadow-xl"
+                      whileHover={{ scale: 1.05, y: -2 }}
+                      whileTap={{ scale: 0.98 }}
+                    >
+                      <FiExternalLink className="w-4 h-4" />
+                      View Demo
+                    </motion.a>
+                  )}
+                </div>
               </motion.div>
             ))}
           </div>
 
-          {/* Add Project Hint */}
+          {/* Footer Hint */}
           <motion.div
             variants={itemVariants}
-            className="mt-8 text-center"
+            className="mt-12 text-center"
           >
             <p className="text-sm text-gray-500 dark:text-gray-400 italic">
-              <FiCode className="inline w-4 h-4 mr-1" />
               More exciting projects coming soon...
             </p>
           </motion.div>

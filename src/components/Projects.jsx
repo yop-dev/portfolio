@@ -83,6 +83,7 @@ const Projects = () => {
       image: realtorImage,
       technologies: ['React', 'Vite', 'Tailwind CSS', 'Framer Motion'],
       demoLink: 'https://realtor-azure-tau.vercel.app',
+      codeLink: 'https://github.com/yop-dev/realtor',
     },
     {
       title: 'IT Ticketing System',
