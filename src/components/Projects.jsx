@@ -9,6 +9,7 @@ import legislationImage from '../images/legislation.png';
 import adshieldImage from '../images/adshieldAI.png';
 import eventsImage from '../images/events.png';
 import ticketingImage from '../images/ticketing.png';
+import inframeImage from '../images/inframe.png';
 
 const Projects = () => {
   const [focusedProject, setFocusedProject] = useState(0); // Start with middle project focused
@@ -43,6 +44,15 @@ const Projects = () => {
   };
 
   const projects = [
+    {
+      title: 'InFrame',
+      description:
+        'Generate professional LinkedIn posts in seconds. AI-powered captions and visuals that stop the scroll and drive engagement.',
+      image: inframeImage,
+      technologies: ['React', 'Vite', 'TypeScript', 'Groq', 'Stripe'],
+      demoLink: 'https://postgen-ai-two.vercel.app/',
+      codeLink: 'https://github.com/yop-dev/privacy-ai-assessment',
+    },
     {
       title: 'RA 10173: Compliance Checker',
       description:
