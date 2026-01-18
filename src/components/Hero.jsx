@@ -8,20 +8,40 @@ import defaultBg from '../images/def-bg.png';
 const Hero = () => {
   const [videoBgError, setVideoBgError] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  // Helper to determine if a link should be visible
+  const shouldShowLink = (sectionId) => {
+    return activeSection === 'hero' || isExpanded || activeSection === sectionId;
+  };
+
+  // Handle link clicks
+  const handleLinkClick = (sectionId) => {
+    if (activeSection === sectionId) {
+      // If clicking the currently active section, toggle expansion
+      setIsExpanded(!isExpanded);
+    } else {
+      // If clicking a different section, navigate and collapse
+      setIsExpanded(false);
+    }
+  };
 
   useEffect(() => {
     const sections = ['hero', 'skills', 'currently-working', 'projects', 'experience', 'contact'];
 
     const observerOptions = {
       root: null,
-      rootMargin: '-20% 0px -35% 0px', // Triggers when section is near center of viewport
-      threshold: 0.1
+      rootMargin: '-20% 0px -20% 0px', // Adjusted to be more balanced
+      threshold: 0.2 // Slightly increased threshold
     };
 
     const observerCallback = (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          setActiveSection(entry.target.id);
+          // Verify we aren't at the very bottom (handled by scroll listener)
+          if (window.innerHeight + window.scrollY < document.body.offsetHeight - 100) {
+            setActiveSection(entry.target.id);
+          }
         }
       });
     };
@@ -33,10 +53,17 @@ const Hero = () => {
       if (element) observer.observe(element);
     });
 
-    // Handle scroll to top specifically
+    // Handle scroll specific cases (Top and Bottom)
     const handleScroll = () => {
+      // Top of page
       if (window.scrollY < 100) {
         setActiveSection('hero');
+        setIsExpanded(false);
+      }
+
+      // Bottom of page (Contact)
+      if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 100) {
+        setActiveSection('contact');
       }
     };
     window.addEventListener('scroll', handleScroll);
@@ -119,10 +146,12 @@ const Hero = () => {
           <div className="flex justify-center">
             <motion.div
               layout
+              onMouseEnter={() => setIsExpanded(true)}
+              onMouseLeave={() => setIsExpanded(false)}
               className="flex items-center gap-4 sm:gap-6 lg:gap-8 px-6 py-3 bg-white/10 dark:bg-gray-900/30 backdrop-blur-md rounded-full border border-white/20 dark:border-gray-700/30 transition-all duration-300"
             >
               <AnimatePresence mode="popLayout">
-                {(activeSection === 'hero' || activeSection === 'skills') && (
+                {shouldShowLink('skills') && (
                   <motion.div
                     key="skills"
                     initial={{ opacity: 0, scale: 0.8 }}
@@ -135,6 +164,7 @@ const Hero = () => {
                       smooth={true}
                       offset={-70}
                       duration={500}
+                      onClick={() => handleLinkClick('skills')}
                       className={`text-xs sm:text-sm font-medium transition-colors duration-300 cursor-pointer ${activeSection === 'skills' ? 'text-white' : 'text-white hover:text-blue-400'
                         }`}
                     >
@@ -143,7 +173,7 @@ const Hero = () => {
                   </motion.div>
                 )}
 
-                {(activeSection === 'hero' || activeSection === 'currently-working') && (
+                {shouldShowLink('currently-working') && (
                   <motion.div
                     key="currently-working"
                     initial={{ opacity: 0, scale: 0.8 }}
@@ -156,6 +186,7 @@ const Hero = () => {
                       smooth={true}
                       offset={-70}
                       duration={500}
+                      onClick={() => handleLinkClick('currently-working')}
                       className={`text-xs sm:text-sm font-medium transition-colors duration-300 cursor-pointer ${activeSection === 'currently-working' ? 'text-white' : 'text-white hover:text-blue-400'
                         }`}
                     >
@@ -164,7 +195,7 @@ const Hero = () => {
                   </motion.div>
                 )}
 
-                {(activeSection === 'hero' || activeSection === 'projects') && (
+                {shouldShowLink('projects') && (
                   <motion.div
                     key="projects"
                     initial={{ opacity: 0, scale: 0.8 }}
@@ -177,6 +208,7 @@ const Hero = () => {
                       smooth={true}
                       offset={-70}
                       duration={500}
+                      onClick={() => handleLinkClick('projects')}
                       className={`text-xs sm:text-sm font-medium transition-colors duration-300 cursor-pointer ${activeSection === 'projects' ? 'text-white' : 'text-white hover:text-blue-400'
                         }`}
                     >
@@ -185,7 +217,7 @@ const Hero = () => {
                   </motion.div>
                 )}
 
-                {(activeSection === 'hero' || activeSection === 'experience') && (
+                {shouldShowLink('experience') && (
                   <motion.div
                     key="experience"
                     initial={{ opacity: 0, scale: 0.8 }}
@@ -198,6 +230,7 @@ const Hero = () => {
                       smooth={true}
                       offset={-70}
                       duration={500}
+                      onClick={() => handleLinkClick('experience')}
                       className={`text-xs sm:text-sm font-medium transition-colors duration-300 cursor-pointer ${activeSection === 'experience' ? 'text-white' : 'text-white hover:text-blue-400'
                         }`}
                     >
@@ -206,7 +239,7 @@ const Hero = () => {
                   </motion.div>
                 )}
 
-                {(activeSection === 'hero' || activeSection === 'contact') && (
+                {shouldShowLink('contact') && (
                   <motion.div
                     key="contact"
                     initial={{ opacity: 0, scale: 0.8 }}
@@ -219,6 +252,7 @@ const Hero = () => {
                       smooth={true}
                       offset={-70}
                       duration={500}
+                      onClick={() => handleLinkClick('contact')}
                       className={`text-xs sm:text-sm font-medium transition-colors duration-300 cursor-pointer ${activeSection === 'contact' ? 'text-white' : 'text-white hover:text-blue-400'
                         }`}
                     >
