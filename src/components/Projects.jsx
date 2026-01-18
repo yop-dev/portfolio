@@ -1,6 +1,6 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { FiGithub, FiExternalLink, FiArrowUpRight } from 'react-icons/fi';
+import { FiGithub, FiExternalLink, FiArrowUpRight, FiPlay } from 'react-icons/fi';
 import tbImage from '../images/TB.png';
 import interviewerImage from '../images/interviewer.png';
 import thesisImage from '../images/thesis.png';
@@ -16,6 +16,7 @@ const Projects = () => {
   const [videoError, setVideoError] = useState(false);
   const videoRef = useRef(null);
   const [showAll, setShowAll] = useState(false);
+  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
 
   const handleVideoClick = () => {
     if (videoRef.current) {
@@ -26,6 +27,18 @@ const Projects = () => {
       }
     }
   };
+
+  const handlePlayVideo = () => {
+    setIsVideoPlaying(true);
+  };
+
+  useEffect(() => {
+    if (isVideoPlaying && videoRef.current) {
+      videoRef.current.play().catch(error => {
+        console.error("Error attempting to play video:", error);
+      });
+    }
+  }, [isVideoPlaying]);
 
   const projects = [
     {
@@ -150,20 +163,46 @@ const Projects = () => {
                   transition={{ duration: 0.4 }}
                 >
                   {featuredProject.title === 'InFrame' && !videoError ? (
-                    <video
-                      ref={videoRef}
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
-                      className="w-full h-full object-cover cursor-pointer"
-                      onError={() => setVideoError(true)}
-                      onLoadedData={() => setVideoError(false)}
-                      onClick={handleVideoClick}
-                    >
-                      <source src="/videos/inFrame.mp4" type="video/mp4" />
-                      Your browser does not support the video tag.
-                    </video>
+                    <>
+                      {/* Static Image with Play Button */}
+                      {!isVideoPlaying && (
+                        <div className="relative w-full h-full">
+                          <img
+                            src={featuredProject.image}
+                            alt={featuredProject.title}
+                            className="w-full h-full object-cover"
+                          />
+                          {/* Play Button Overlay */}
+                          <div className="absolute inset-0 flex items-center justify-center bg-black/20">
+                            <motion.button
+                              onClick={handlePlayVideo}
+                              className="w-20 h-20 flex items-center justify-center bg-white/20 hover:bg-white/30 backdrop-blur-md rounded-full border-2 border-white/50 hover:border-white transition-all duration-300 shadow-2xl"
+                              whileHover={{ scale: 1.1 }}
+                              whileTap={{ scale: 0.95 }}
+                            >
+                              <FiPlay className="w-10 h-10 text-white ml-1" />
+                            </motion.button>
+                          </div>
+                        </div>
+                      )}
+                      {/* Video - Hidden until play button is clicked */}
+                      {isVideoPlaying && (
+                        <video
+                          ref={videoRef}
+                          autoPlay
+                          loop
+                          muted
+                          playsInline
+                          className="w-full h-full object-cover cursor-pointer"
+                          onError={() => setVideoError(true)}
+                          onLoadedData={() => setVideoError(false)}
+                          onClick={handleVideoClick}
+                        >
+                          <source src="/videos/inFrame.mp4" type="video/mp4" />
+                          Your browser does not support the video tag.
+                        </video>
+                      )}
+                    </>
                   ) : (
                     <img
                       src={featuredProject.image}
@@ -173,7 +212,7 @@ const Projects = () => {
                   )}
                 </motion.div>
                 {/* Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-transparent dark:from-blue-900/10"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-transparent dark:from-blue-900/10 pointer-events-none"></div>
               </div>
 
               {/* Content Section */}
