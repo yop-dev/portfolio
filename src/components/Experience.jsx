@@ -1,6 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import { FiMapPin, FiExternalLink } from 'react-icons/fi';
 
 const Experience = () => {
   const controls = useAnimation();
@@ -24,22 +25,22 @@ const Experience = () => {
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 0, x: -30 },
     visible: {
       opacity: 1,
-      y: 0,
-      transition: { duration: 0.5, ease: 'easeOut' },
+      x: 0,
+      transition: { duration: 0.6, ease: 'easeOut' },
     },
   };
 
   const experiences = [
     {
-      title: 'IT Specialist Intern',
-      company: 'Pearl Energy Philippines Inc.',
-      period: 'Jun - Jul 2024',
-      type: 'On-site',
-      technologies: ['Microsoft Access', 'Visual Basic'],
-      url: 'https://www.qpl.com.ph',
+      title: 'Full Stack Developer',
+      company: 'Reelr Sports',
+      period: 'October 2025 - Present',
+      type: 'Remote',
+      technologies: ['React', 'TypeScript', 'C#', 'SQL'],
+      url: 'https://sports.reelr.app/allevents',
     },
     {
       title: 'Web Developer Intern',
@@ -50,103 +51,99 @@ const Experience = () => {
       url: 'https://chatgenie.ph',
     },
     {
-      title: 'Full Stack Developer',
-      company: 'Reelr Sports',
-      period: 'October 2025 - Present',
-      type: 'Remote',
-      technologies: ['React', 'TypeScript', 'C#', 'SQL'],
-      url: 'https://sports.reelr.app/allevents',
+      title: 'IT Specialist Intern',
+      company: 'Pearl Energy Philippines Inc.',
+      period: 'Jun - Jul 2024',
+      type: 'On-site',
+      technologies: ['Microsoft Access', 'Visual Basic'],
+      url: 'https://www.qpl.com.ph',
     },
   ];
 
   return (
     <section
       id="experience"
-      className="py-16 bg-white dark:bg-gray-900"
+      className="py-20 bg-white dark:bg-gray-900"
     >
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
         <motion.div
           ref={ref}
           animate={controls}
           initial="hidden"
           variants={containerVariants}
-          className="max-w-4xl mx-auto"
         >
           {/* Section Header */}
-          <motion.div variants={itemVariants} className="text-center mb-12 sm:mb-16">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+          <motion.div variants={itemVariants} className="text-center mb-16">
+            <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mb-4">
               Experience
             </h2>
-            <div className="w-16 sm:w-20 md:w-24 h-0.5 sm:h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto rounded-full"></div>
-            <p className="text-gray-600 dark:text-gray-300 mt-4 text-base sm:text-lg">
+            <div className="w-24 h-1 bg-blue-600 mx-auto rounded-full mb-6"></div>
+            <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
               My professional journey in tech
             </p>
           </motion.div>
 
           {/* Timeline */}
-          <motion.div variants={itemVariants} className="relative">
-            {/* Timeline Line */}
-            <div className="absolute top-16 sm:top-20 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-600"></div>
+          <div className="relative">
+            {/* Vertical timeline line */}
+            <div className="absolute left-4 sm:left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-600 via-blue-500 to-blue-400"></div>
 
             {/* Experience Items */}
-            <div className="flex flex-col sm:flex-row justify-center items-center sm:space-x-8 md:space-x-16 space-y-8 sm:space-y-0 pt-4">
+            <div className="space-y-8 md:space-y-12">
               {experiences.map((exp, index) => (
                 <motion.div
                   key={index}
-                  className="relative text-center w-full max-w-xs sm:w-72 md:w-80 cursor-pointer group"
-                  onClick={() => window.open(exp.url, '_blank', 'noopener,noreferrer')}
-                  whileHover={{ scale: 1.02 }}
-                  transition={{ duration: 0.3 }}
+                  variants={itemVariants}
+                  className="relative pl-12 sm:pl-20"
                 >
-                  {/* Date and Type - Above the line */}
-                  <div className="flex flex-col sm:flex-row items-center justify-center gap-2 mb-3 sm:mb-4">
-                    <span className="text-xs sm:text-sm font-medium text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20 px-2 sm:px-3 py-1 rounded-full">
-                      {exp.period}
-                    </span>
-                    <span className="text-xs px-2 py-1 rounded-full bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400">
-                      {exp.type}
-                    </span>
-                  </div>
-
                   {/* Timeline Dot */}
-                  <div className="w-3 h-3 sm:w-4 sm:h-4 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full mx-auto mb-4 sm:mb-6 relative z-10 border-2 border-white dark:border-gray-900 shadow-lg"></div>
+                  <div className="absolute left-2.5 sm:left-6.5 top-6 w-3 h-3 sm:w-4 sm:h-4 bg-blue-600 rounded-full border-4 border-white dark:border-gray-900 shadow-lg"></div>
 
-                  {/* Glassmorphic Card */}
-                  <div className="relative w-full min-h-[180px] sm:h-48 bg-white/40 dark:bg-gray-800/40 backdrop-blur-md rounded-lg p-4 sm:p-6 shadow-xl border border-white/20 dark:border-gray-700/30 flex flex-col justify-between overflow-hidden">
-                    {/* Hover Overlay */}
-                    <div className="absolute inset-0 bg-blue-600/90 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center rounded-lg z-10">
-                      <span className="text-white font-bold text-lg sm:text-xl">Visit Website</span>
-                    </div>
+                  {/* Experience Card */}
+                  <motion.div
+                    className="group relative bg-white dark:bg-gray-800 rounded-2xl p-6 sm:p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-200 dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-500 cursor-pointer"
+                    onClick={() => window.open(exp.url, '_blank', 'noopener,noreferrer')}
+                    whileHover={{ scale: 1.02, y: -4 }}
+                  >
+                    {/* Header */}
+                    <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-4">
+                      <div className="flex-1">
+                        <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                          {exp.title}
+                        </h3>
+                        <p className="text-lg font-semibold text-gray-700 dark:text-gray-300 flex items-center gap-2">
+                          {exp.company}
+                          <FiExternalLink className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
+                        </p>
+                      </div>
 
-                    {/* Content */}
-                    <div className="relative z-0">
-                      {/* Job Title */}
-                      <h3 className="font-bold text-gray-900 dark:text-white text-base sm:text-lg mb-2">
-                        {exp.title}
-                      </h3>
-
-                      {/* Company */}
-                      <p className="text-gray-700 dark:text-gray-300 font-medium mb-3 sm:mb-4 text-sm sm:text-base">
-                        {exp.company}
-                      </p>
+                      <div className="flex flex-col sm:items-end gap-2">
+                        <span className="inline-block text-sm font-medium text-blue-600 dark:text-blue-400 bg-blue-100 dark:bg-blue-900/30 px-3 py-1 rounded-full w-fit">
+                          {exp.period}
+                        </span>
+                        <span className="inline-flex items-center gap-1.5 text-sm text-gray-600 dark:text-gray-400">
+                          <FiMapPin className="w-4 h-4" />
+                          {exp.type}
+                        </span>
+                      </div>
                     </div>
 
                     {/* Technologies */}
-                    <div className="flex flex-wrap gap-1 justify-center relative z-0">
+                    <div className="flex flex-wrap gap-2">
                       {exp.technologies.map((tech, techIndex) => (
                         <span
                           key={techIndex}
-                          className="text-xs px-2 py-1 bg-gradient-to-r from-blue-500/10 to-purple-600/10 text-blue-600 dark:text-blue-400 rounded-md border border-blue-200 dark:border-blue-800 backdrop-blur-sm"
+                          className="text-xs sm:text-sm font-medium text-gray-700 dark:text-gray-300 bg-gray-100 dark:bg-gray-700 px-3 py-1.5 rounded-lg"
                         >
                           {tech}
                         </span>
                       ))}
                     </div>
-                  </div>
+                  </motion.div>
                 </motion.div>
               ))}
             </div>
-          </motion.div>
+          </div>
         </motion.div>
       </div>
     </section>

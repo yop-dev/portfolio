@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-scroll';
 import { FiArrowRight } from 'react-icons/fi';
-import profileImage from '../images/JD.jpg';
+import profileImage from '../images/JD2.jpg';
 
 const Hero = () => {
   // Animation variants
@@ -124,7 +124,7 @@ const Hero = () => {
             <motion.div variants={itemVariants} className="flex items-center justify-center md:justify-end order-1 md:order-1">
               <div className="relative w-56 h-56 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
                 {/* Gradient Ring */}
-                <div className="absolute inset-0 rounded-full bg-gradient-to-br from-blue-400 to-indigo-600 shadow-2xl" />
+                <div className="absolute inset-0 rounded-full bg-gradient-to-br from-gray-400 to-gray-600 shadow-2xl" />
                 {/* Image Container */}
                 <div className="absolute inset-1.5 sm:inset-2 rounded-full overflow-hidden bg-gray-900">
                   <img
