@@ -1,9 +1,13 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-scroll';
 import { FiArrowRight } from 'react-icons/fi';
 import profileImage from '../images/JD2.jpg';
+import defaultBg from '../images/def-bg.png';
 
 const Hero = () => {
+  const [videoBgError, setVideoBgError] = useState(false);
+
   // Animation variants
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -32,19 +36,29 @@ const Hero = () => {
       id="hero"
       className="relative flex items-center justify-center min-h-screen overflow-hidden"
     >
-      {/* Background Video */}
+      {/* Background Video or Image */}
       <div className="absolute inset-0 z-0">
-        <video
-          className="w-full h-full object-cover"
-          autoPlay
-          loop
-          muted
-          playsInline
-          preload="auto"
-        >
-          <source src="/videos/hero-bg-2-cropped.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
+        {!videoBgError ? (
+          <video
+            className="w-full h-full object-cover"
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="auto"
+            onError={() => setVideoBgError(true)}
+            onLoadedData={() => setVideoBgError(false)}
+          >
+            <source src="/videos/hero-bg-2-cropped.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        ) : (
+          <img
+            src={defaultBg}
+            alt="Background"
+            className="w-full h-full object-cover"
+          />
+        )}
       </div>
 
       {/* Minimal Header Navigation */}
