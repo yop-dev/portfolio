@@ -10,6 +10,7 @@ import eventsImage from '../images/events.png';
 import ticketingImage from '../images/ticketing.png';
 import inframeImage from '../images/inframe.png';
 import realtorImage from '../images/realtor-portfolio.png';
+import artisanalCrustImage from '../images/artisanal-crust.png';
 
 const Projects = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
@@ -49,6 +50,14 @@ const Projects = () => {
       demoLink: 'https://postgen-ai-two.vercel.app/',
       codeLink: 'https://github.com/yop-dev/postgen-ai',
       featured: true,
+    },
+    {
+      title: 'The Artisanal Crust',
+      description: 'Statis pastry shop website with modern design and user-friendly interface.',
+      image: artisanalCrustImage,
+      technologies: ['Node.js', 'React', 'Next.js', 'Netlify', 'Nano Banana'],
+      demoLink: 'https://allyspastry-shop.netlify.app/',
+      codeLink: 'https://github.com/yop-dev/pastry-shop',
     },
     {
       title: 'RA 10173: Compliance Checker',
