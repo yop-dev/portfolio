@@ -55,7 +55,7 @@ const Projects = () => {
       title: 'The Artisanal Crust',
       description: 'Static pastry shop website with modern design and user-friendly interface.',
       image: artisanalCrustImage,
-      technologies: ['Node.js', 'React', 'Next.js', 'Netlify', 'Nano Banana'],
+      technologies: ['React', 'Next.js', 'Netlify', 'Framer Motion','Nano Banana'],
       demoLink: 'https://allyspastry-shop.netlify.app/',
       codeLink: 'https://github.com/yop-dev/pastry-shop',
     },
