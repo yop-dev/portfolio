@@ -35,6 +35,14 @@ const Experience = () => {
 
   const experiences = [
     {
+      title: 'AI Software Engineer & Automation Builder',
+      company: 'DTLA Print',
+      period: 'February 2026 - Present',
+      type: 'Remote',
+      technologies: ['React', 'TypeScript', 'n8n', 'Antigravity'],
+      url: 'https://www.dtlaprint.com/',
+    },
+    {
       title: 'Full Stack Developer',
       company: 'Reelr Sports',
       period: 'October 2025 - Present',
