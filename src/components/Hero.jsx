@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import {
-  ArrowRight, Briefcase, Wand2, BookOpen, Menu, Plus,
+  ArrowRight, Briefcase, Cog, Bot, Menu, Plus,
 } from 'lucide-react';
 import { FiGithub, FiLinkedin, FiMail } from 'react-icons/fi';
 import accidentpathImage from '../images/accidentpath.png';
@@ -157,7 +157,7 @@ const Hero = () => {
           <div className="grid grid-cols-2 gap-3">
             <div className="liquid-glass rounded-3xl p-5">
               <span className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center mb-3">
-                <Wand2 className="w-4 h-4 text-amber-200" />
+                <Cog className="w-4 h-4 text-amber-200" />
               </span>
               <h3 className="text-sm font-medium text-white mb-1">AI Engineering</h3>
               <p className="text-xs text-white/60 leading-relaxed">
@@ -166,7 +166,7 @@ const Hero = () => {
             </div>
             <div className="liquid-glass rounded-3xl p-5">
               <span className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center mb-3">
-                <BookOpen className="w-4 h-4 text-amber-200" />
+                <Bot className="w-4 h-4 text-amber-200" />
               </span>
               <h3 className="text-sm font-medium text-white mb-1">Automation</h3>
               <p className="text-xs text-white/60 leading-relaxed">
