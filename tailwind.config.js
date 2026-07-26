@@ -5,8 +5,16 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        sans: ['Poppins', 'sans-serif'],
+        display: ['Poppins', 'sans-serif'],
+        serif: ['"Source Serif 4"', 'serif'],
+      },
+      borderRadius: {
+        DEFAULT: 'var(--radius)',
+      },
+    },
   },
-  darkMode: 'class',
   plugins: [],
 }
