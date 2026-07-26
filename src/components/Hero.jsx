@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import {
-  ArrowRight, Sparkles, Wand2, BookOpen, Menu, Plus,
+  ArrowRight, Briefcase, Wand2, BookOpen, Menu, Plus,
 } from 'lucide-react';
 import { FiGithub, FiLinkedin, FiMail } from 'react-icons/fi';
 import accidentpathImage from '../images/accidentpath.png';
@@ -138,7 +138,7 @@ const Hero = () => {
             className="liquid-glass rounded-full pl-2 pr-4 py-2 flex items-center gap-2 text-sm text-white/80 hover:scale-105 transition-transform"
           >
             <span className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center">
-              <Sparkles className="w-4 h-4 text-amber-200" />
+              <Briefcase className="w-4 h-4 text-amber-200" />
             </span>
             Hire me
           </a>
