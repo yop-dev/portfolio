@@ -5,6 +5,7 @@ import {
 } from 'lucide-react';
 import { FiGithub, FiLinkedin, FiMail } from 'react-icons/fi';
 import accidentpathImage from '../images/accidentpath.png';
+import shoptitanImage from '../images/shoptitan.png';
 
 const navLinks = [
   { label: 'What I do', href: '#what-i-do' },
@@ -186,6 +187,26 @@ const Hero = () => {
             <a
               href="#work"
               aria-label="View case study"
+              className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-white hover:scale-105 transition-transform"
+            >
+              <Plus className="w-4 h-4" />
+            </a>
+          </div>
+          <div className="liquid-glass rounded-3xl p-4 flex items-center gap-4">
+            <img
+              src={shoptitanImage}
+              alt="ShopTitan.app homepage"
+              className="w-24 h-16 object-cover rounded-xl grayscale"
+            />
+            <div className="flex-1">
+              <h3 className="text-sm font-medium text-white">Client work - ShopTitan.app</h3>
+              <p className="text-xs text-white/60">Print shop websites and management software.</p>
+            </div>
+            <a
+              href="https://shoptitan.app"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Visit ShopTitan.app"
               className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-white hover:scale-105 transition-transform"
             >
               <Plus className="w-4 h-4" />
