@@ -4,8 +4,8 @@ import {
   ArrowRight, Briefcase, Cog, Bot, Menu, Plus,
 } from 'lucide-react';
 import { FiGithub, FiLinkedin, FiMail } from 'react-icons/fi';
-import accidentpathImage from '../images/accidentpath.png';
-import shoptitanImage from '../images/shoptitan.png';
+import accidentpathImage from '../images/accidentpath.webp';
+import shoptitanImage from '../images/shoptitan.webp';
 
 const navLinks = [
   { label: 'What I do', href: '#what-i-do' },

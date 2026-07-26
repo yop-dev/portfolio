@@ -2,15 +2,15 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ExternalLink, ChevronDown } from 'lucide-react';
 import { FiGithub } from 'react-icons/fi';
-import accidentpathImage from '../images/accidentpath.png';
-import shoptitanImage from '../images/shoptitan.png';
-import reelrImage from '../images/reelr.png';
-import qplImage from '../images/qpl-sbpl.png';
-import inframeImage from '../images/inframe.png';
-import interviewerImage from '../images/interviewer.png';
-import legislationImage from '../images/legislation.png';
-import tbImage from '../images/TB.png';
-import artisanalCrustImage from '../images/artisanal-crust.png';
+import accidentpathImage from '../images/accidentpath.webp';
+import shoptitanImage from '../images/shoptitan.webp';
+import reelrImage from '../images/reelr.webp';
+import qplImage from '../images/qpl-sbpl.webp';
+import inframeImage from '../images/inframe.webp';
+import interviewerImage from '../images/interviewer.webp';
+import legislationImage from '../images/legislation.webp';
+import tbImage from '../images/TB.webp';
+import artisanalCrustImage from '../images/artisanal-crust.webp';
 
 const accidentPathStack = ['Next.js', 'TypeScript', 'Tailwind CSS', 'Supabase', 'n8n', 'Vercel'];
 
@@ -116,6 +116,7 @@ const ProofOfWork = () => {
             <img
               src={accidentpathImage}
               alt="AccidentPath.com homepage"
+              loading="lazy"
               className="absolute inset-0 w-full h-full object-cover object-top grayscale-[35%] hover:grayscale-0 transition-all duration-500"
             />
           </div>
@@ -128,6 +129,20 @@ const ProofOfWork = () => {
               intake flow, a Supabase-backed attorney directory, lead delivery automated
               with n8n, and the SEO and content pipeline behind its organic growth.
             </p>
+            <div className="grid grid-cols-3 gap-4 mb-8">
+              <div>
+                <p className="text-2xl sm:text-3xl text-white font-medium">980+</p>
+                <p className="text-xs text-white/50">pages live</p>
+              </div>
+              <div>
+                <p className="text-2xl sm:text-3xl text-white font-medium">690+</p>
+                <p className="text-xs text-white/50">attorney profiles</p>
+              </div>
+              <div>
+                <p className="text-2xl sm:text-3xl text-white font-medium">EN + ES</p>
+                <p className="text-xs text-white/50">fully bilingual</p>
+              </div>
+            </div>
             <div className="flex flex-wrap gap-2 mb-8">
               {accidentPathStack.map((tech) => (
                 <span key={tech} className="text-xs text-white/70 bg-white/5 rounded-full px-3 py-1.5">
@@ -166,6 +181,7 @@ const ProofOfWork = () => {
               <img
                 src={project.image}
                 alt={project.title}
+                loading="lazy"
                 className="w-full h-full object-cover grayscale-[35%] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500"
               />
             </div>
