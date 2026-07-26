@@ -5,6 +5,7 @@ import { FiGithub } from 'react-icons/fi';
 import accidentpathImage from '../images/accidentpath.png';
 import shoptitanImage from '../images/shoptitan.png';
 import reelrImage from '../images/reelr.png';
+import qplImage from '../images/qpl-sbpl.png';
 import inframeImage from '../images/inframe.png';
 import interviewerImage from '../images/interviewer.png';
 import legislationImage from '../images/legislation.png';
@@ -29,6 +30,14 @@ const projects = [
     tags: ['React', 'TypeScript', 'C#'],
     demoLink: 'https://sports.reelr.app',
     client: true,
+  },
+  {
+    title: 'Quezon Power',
+    description: 'Concept redesign of the corporate site for the 460 MW power facility on the Luzon grid.',
+    image: qplImage,
+    tags: ['React', 'TypeScript', 'Vercel'],
+    demoLink: 'https://qpl-sbpl.vercel.app/',
+    codeLink: 'https://github.com/yop-dev/QPL-SBPL',
   },
   {
     title: 'InFrame',
