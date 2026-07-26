@@ -117,7 +117,7 @@ const ProofOfWork = () => {
               src={accidentpathImage}
               alt="AccidentPath.com homepage"
               loading="lazy"
-              className="absolute inset-0 w-full h-full object-cover object-top grayscale-[35%] hover:grayscale-0 transition-all duration-500"
+              className="absolute inset-0 w-full h-full object-cover object-top"
             />
           </div>
           <div className="p-8 sm:p-12 flex flex-col justify-center">
@@ -177,13 +177,25 @@ const ProofOfWork = () => {
             transition={{ duration: 0.5, delay: index * 0.08 }}
             className="liquid-glass rounded-3xl overflow-hidden group"
           >
-            <div className="h-44 overflow-hidden">
-              <img
-                src={project.image}
-                alt={project.title}
-                loading="lazy"
-                className="w-full h-full object-cover grayscale-[35%] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500"
-              />
+            <div className="p-4 pb-0">
+              <div className="rounded-xl overflow-hidden bg-white/5 shadow-lg">
+                <div className="flex items-center gap-1.5 px-3 py-2 bg-white/10">
+                  <span className="w-2.5 h-2.5 rounded-full bg-white/25" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-white/25" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-white/25" />
+                  <span className="ml-2 flex-1 rounded-full bg-white/10 px-3 py-0.5 text-[10px] text-white/50 truncate">
+                    {new URL(project.demoLink).hostname}
+                  </span>
+                </div>
+                <div className="h-40 overflow-hidden">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    loading="lazy"
+                    className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+              </div>
             </div>
             <div className="p-6">
               <h3 className="text-lg text-white mb-2">{project.title}</h3>
