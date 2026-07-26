@@ -112,13 +112,25 @@ const ProofOfWork = () => {
         className="liquid-glass-strong rounded-[2.5rem] overflow-hidden mb-14"
       >
         <div className="grid lg:grid-cols-2">
-          <div className="relative min-h-[280px]">
-            <img
-              src={accidentpathImage}
-              alt="AccidentPath.com homepage"
-              loading="lazy"
-              className="absolute inset-0 w-full h-full object-cover object-top"
-            />
+          <div className="p-6 sm:p-8 flex items-center">
+            <div className="w-full rounded-xl overflow-hidden bg-white/5 shadow-lg">
+              <div className="flex items-center gap-1.5 px-3 py-2 bg-white/10">
+                <span className="w-2.5 h-2.5 rounded-full bg-white/25" />
+                <span className="w-2.5 h-2.5 rounded-full bg-white/25" />
+                <span className="w-2.5 h-2.5 rounded-full bg-white/25" />
+                <span className="ml-2 flex-1 rounded-full bg-white/10 px-3 py-0.5 text-[10px] text-white/50 truncate">
+                  accidentpath.com
+                </span>
+              </div>
+              <div className="h-56 sm:h-72 overflow-hidden">
+                <img
+                  src={accidentpathImage}
+                  alt="AccidentPath.com homepage"
+                  loading="lazy"
+                  className="w-full h-full object-cover object-top"
+                />
+              </div>
+            </div>
           </div>
           <div className="p-8 sm:p-12 flex flex-col justify-center">
             <p className="text-xs tracking-widest uppercase text-amber-300/70 mb-3">DTLA Print - client work</p>
