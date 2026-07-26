@@ -1,118 +1,51 @@
-import { useEffect } from 'react';
-import { motion, useAnimation } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
-import { FiMail, FiGithub, FiLinkedin, FiTwitter, FiPhone, FiDownload } from 'react-icons/fi';
+import { motion } from 'framer-motion';
+import { Mail, Github, Linkedin, Phone, Download } from 'lucide-react';
+import resumeUrl from '../files/CV Joner De Silva.pdf';
 
-const Contact = () => {
-  const controls = useAnimation();
-  const [ref, inView] = useInView({
-    threshold: 0.1,
-    triggerOnce: true,
-  });
+const contactLinks = [
+  { name: 'Resume', icon: Download, href: resumeUrl, download: 'Joner De Silva - Resume.pdf' },
+  { name: 'Email', icon: Mail, href: 'mailto:desilvajoner95@gmail.com' },
+  { name: 'Phone', icon: Phone, href: 'tel:+639638513001' },
+  { name: 'GitHub', icon: Github, href: 'https://github.com/yop-dev', external: true },
+  { name: 'LinkedIn', icon: Linkedin, href: 'https://www.linkedin.com/in/joner-de-silva-861575203/', external: true },
+];
 
-  useEffect(() => {
-    if (inView) {
-      controls.start('visible');
-    }
-  }, [controls, inView]);
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.8,
-        ease: 'easeOut',
-      },
-    },
-  };
-
-  const contactLinks = [
-    {
-      name: 'Resume',
-      icon: <FiDownload className="w-6 h-6" />,
-      href: '/src/files/CV Joner De Silva.pdf',
-      download: true,
-    },
-    {
-      name: 'Email',
-      icon: <FiMail className="w-6 h-6" />,
-      href: 'mailto:desilvajoner95@gmail.com',
-    },
-    {
-      name: 'Phone',
-      icon: <FiPhone className="w-6 h-6" />,
-      href: 'tel:+639638513001',
-    },
-    {
-      name: 'GitHub',
-      icon: <FiGithub className="w-6 h-6" />,
-      href: 'https://github.com/yop-dev',
-    },
-    {
-      name: 'LinkedIn',
-      icon: <FiLinkedin className="w-6 h-6" />,
-      href: 'https://www.linkedin.com/in/joner-de-silva-861575203/',
-    },
-  ];
-
-  return (
-    <section id="contact" className="py-12 sm:py-16 bg-blue-50 dark:bg-slate-950">
-      <div className="container">
-        <motion.div
-          ref={ref}
-          variants={containerVariants}
-          initial="hidden"
-          animate={controls}
-          className="max-w-3xl mx-auto"
-        >
-          <motion.h2 className="mb-4 sm:mb-6 text-2xl sm:text-3xl font-bold text-center text-gray-900 sm:text-4xl dark:text-white" variants={itemVariants}>
-            Get In Touch
-          </motion.h2>
-          <div className="w-24 h-1 bg-gray-600 mx-auto rounded-full mb-6"></div>
-          <motion.p
-            className="max-w-xl mx-auto mb-8 sm:mb-12 text-center text-sm sm:text-base text-gray-600 dark:text-gray-400 px-4"
-            variants={itemVariants}
-          >
-            I'm currently looking for new opportunities. Whether you have a question or just want to say hi,
-            feel free to reach out!
-          </motion.p>
-
-          <motion.div
-            className="flex justify-center gap-2 sm:gap-3 flex-wrap px-4"
-            variants={itemVariants}
-          >
-            {contactLinks.map((link, index) => (
-              <motion.a
-                key={index}
-                href={link.href}
-                target={link.name === 'Email' || link.name === 'Phone' || link.name === 'Resume' ? '_self' : '_blank'}
-                rel={link.name === 'Email' || link.name === 'Phone' || link.name === 'Resume' ? undefined : 'noopener noreferrer'}
-                download={link.download ? 'Joner De Silva - Resume.pdf' : undefined}
-                className="flex items-center px-3 sm:px-4 py-2 sm:py-3 space-x-1.5 sm:space-x-2 text-white bg-white bg-opacity-20 backdrop-blur-sm border border-white border-opacity-30 rounded-full hover:bg-opacity-30 hover:border-opacity-50 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50 text-xs sm:text-sm"
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                {link.icon}
-                <span className="font-medium">{link.name}</span>
-              </motion.a>
-            ))}
-          </motion.div>
-        </motion.div>
-      </div>
-    </section>
-  );
-};
+const Contact = () => (
+  <section id="contact" className="relative py-24">
+    <div className="container max-w-4xl">
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.7 }}
+        className="liquid-glass-strong rounded-[2.5rem] p-10 sm:p-16 text-center"
+      >
+        <p className="text-xs tracking-widest uppercase text-white/50 mb-4">Contact</p>
+        <h2 className="text-4xl sm:text-5xl tracking-tight text-white mb-4">
+          Let&apos;s build <em className="text-white/80">something</em>
+        </h2>
+        <p className="text-white/60 max-w-xl mx-auto mb-10">
+          Need AI features, automations, or a production web app shipped fast?
+          Reach out and tell me what you are building.
+        </p>
+        <div className="flex flex-wrap justify-center gap-3">
+          {contactLinks.map((link) => (
+            <a
+              key={link.name}
+              href={link.href}
+              download={link.download}
+              target={link.external ? '_blank' : undefined}
+              rel={link.external ? 'noopener noreferrer' : undefined}
+              className="liquid-glass rounded-full px-5 py-2.5 inline-flex items-center gap-2 text-sm text-white/80 hover:text-white hover:scale-105 transition-all"
+            >
+              <link.icon className="w-4 h-4" />
+              {link.name}
+            </a>
+          ))}
+        </div>
+      </motion.div>
+    </div>
+  </section>
+);
 
 export default Contact;

@@ -1,64 +1,39 @@
-import { motion } from 'framer-motion';
-import { FiHeart } from 'react-icons/fi';
+import { Github, Linkedin, Mail } from 'lucide-react';
 
-const Footer = () => {
-  const currentYear = new Date().getFullYear();
-
-  return (
-    <footer className="py-8 bg-white dark:bg-gray-900">
-      <div className="container">
-        <div className="flex flex-col items-center justify-between space-y-4 md:flex-row md:space-y-0">
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5 }}
-          >
-            <p className="text-gray-700 dark:text-gray-300">
-              © {currentYear} Joner De SIlva. All rights reserved.
-            </p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="flex items-center"
-          >
-            <p className="flex items-center text-gray-700 dark:text-gray-300">
-              Built using React & Tailwind CSS
-            </p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-          >
-            <nav className="flex space-x-4">
-              <a
-                href="#"
-                className="text-sm text-gray-600 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400"
-              >
-                Privacy
-              </a>
-              <a
-                href="#"
-                className="text-sm text-gray-600 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400"
-              >
-                Terms
-              </a>
-              <a
-                href="#"
-                className="text-sm text-gray-600 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400"
-              >
-                Sitemap
-              </a>
-            </nav>
-          </motion.div>
-        </div>
+const Footer = () => (
+  <footer className="relative py-8">
+    <div className="container flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-white/50">
+      <span className="text-lg font-semibold tracking-tighter text-white/80">joner</span>
+      <span>&copy; {new Date().getFullYear()} Joner De Silva. All rights reserved.</span>
+      <div className="flex items-center gap-4">
+        <a
+          href="https://github.com/yop-dev"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="GitHub"
+          className="hover:text-white transition-colors"
+        >
+          <Github className="w-4 h-4" />
+        </a>
+        <a
+          href="https://www.linkedin.com/in/joner-de-silva-861575203/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="LinkedIn"
+          className="hover:text-white transition-colors"
+        >
+          <Linkedin className="w-4 h-4" />
+        </a>
+        <a
+          href="mailto:desilvajoner95@gmail.com"
+          aria-label="Email"
+          className="hover:text-white transition-colors"
+        >
+          <Mail className="w-4 h-4" />
+        </a>
       </div>
-    </footer>
-  );
-};
+    </div>
+  </footer>
+);
 
 export default Footer;
