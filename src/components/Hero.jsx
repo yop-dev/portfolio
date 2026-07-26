@@ -9,7 +9,9 @@ import shoptitanImage from '../images/shoptitan.webp';
 
 const navLinks = [
   { label: 'What I do', href: '#what-i-do' },
+  { label: 'How it works', href: '#how-it-works' },
   { label: 'Work', href: '#work' },
+  { label: 'About', href: '#about' },
   { label: 'Experience', href: '#experience' },
   { label: 'Contact', href: '#contact' },
 ];
