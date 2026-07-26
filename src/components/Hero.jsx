@@ -88,7 +88,7 @@ const Hero = () => {
 
           {/* Bottom quote */}
           <div className="text-center space-y-3">
-            <p className="text-xs tracking-widest uppercase text-amber-300/70">Built with AI, shipped by me</p>
+            <p className="text-xs tracking-widest uppercase text-amber-300/70">Engineered end to end</p>
             <p className="text-lg text-white/80">
               I build the software <em className="font-serif italic">and the automations</em> that build the business.
             </p>
