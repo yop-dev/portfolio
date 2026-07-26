@@ -1,5 +1,6 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ExternalLink } from 'lucide-react';
+import { ExternalLink, ChevronDown } from 'lucide-react';
 import { FiGithub } from 'react-icons/fi';
 import accidentpathImage from '../images/accidentpath.png';
 import shoptitanImage from '../images/shoptitan.png';
@@ -71,7 +72,13 @@ const projects = [
   },
 ];
 
-const ProofOfWork = () => (
+const VISIBLE_COUNT = 3;
+
+const ProofOfWork = () => {
+  const [showAll, setShowAll] = useState(false);
+  const visibleProjects = showAll ? projects : projects.slice(0, VISIBLE_COUNT);
+
+  return (
   <section id="work" className="relative py-24">
     <div className="container">
       <motion.div
@@ -137,7 +144,7 @@ const ProofOfWork = () => (
 
       {/* Personal projects grid */}
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {projects.map((project, index) => (
+        {visibleProjects.map((project, index) => (
           <motion.div
             key={project.title}
             initial={{ opacity: 0, y: 30 }}
@@ -192,8 +199,23 @@ const ProofOfWork = () => (
           </motion.div>
         ))}
       </div>
+
+      {projects.length > VISIBLE_COUNT && (
+        <div className="flex justify-center mt-12">
+          <button
+            onClick={() => setShowAll(!showAll)}
+            className="liquid-glass rounded-full px-8 py-3 inline-flex items-center gap-2 text-sm font-medium text-white hover:scale-105 active:scale-95 transition-transform"
+          >
+            {showAll ? 'Show less' : `See ${projects.length - VISIBLE_COUNT} more projects`}
+            <ChevronDown
+              className={`w-4 h-4 transition-transform duration-300 ${showAll ? 'rotate-180' : ''}`}
+            />
+          </button>
+        </div>
+      )}
     </div>
   </section>
-);
+  );
+};
 
 export default ProofOfWork;
