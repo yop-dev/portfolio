@@ -1,5 +1,6 @@
+import { Fragment } from 'react';
 import { motion } from 'framer-motion';
-import { MessageSquare, Rocket, Workflow } from 'lucide-react';
+import { MessageSquare, Rocket, Workflow, ArrowRight, ArrowDown } from 'lucide-react';
 
 const steps = [
   {
@@ -37,27 +38,37 @@ const HowItWorks = () => (
           How it <em className="text-amber-200/90">works</em>
         </h2>
       </motion.div>
-      <div className="grid md:grid-cols-3 gap-6">
-        {steps.map((step, index) => (
-          <motion.div
-            key={step.step}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
-            className="liquid-glass rounded-3xl p-8"
-          >
-            <div className="flex items-center justify-between mb-5">
-              <span className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center">
-                <step.icon className="w-5 h-5 text-amber-200" />
-              </span>
-              <span className="text-3xl font-medium text-white/20">{step.step}</span>
-            </div>
-            <h3 className="text-xl text-white mb-3">{step.title}</h3>
-            <p className="text-sm text-white/60 leading-relaxed">{step.description}</p>
-          </motion.div>
-        ))}
-      </div>
+
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.7 }}
+        className="liquid-glass-strong rounded-[2.5rem] p-8 sm:p-12"
+      >
+        <div className="flex flex-col md:flex-row items-stretch gap-6 md:gap-4">
+          {steps.map((step, index) => (
+            <Fragment key={step.step}>
+              {index > 0 && (
+                <div className="flex items-center justify-center shrink-0" aria-hidden="true">
+                  <ArrowRight className="hidden md:block w-5 h-5 text-amber-300/50" />
+                  <ArrowDown className="md:hidden w-5 h-5 text-amber-300/50" />
+                </div>
+              )}
+              <div className="flex-1 relative px-2 sm:px-4">
+                <span className="absolute -top-3 right-2 text-6xl font-serif italic text-amber-200/15 select-none" aria-hidden="true">
+                  {step.step}
+                </span>
+                <span className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center mb-5">
+                  <step.icon className="w-5 h-5 text-amber-200" />
+                </span>
+                <h3 className="text-xl text-white mb-3">{step.title}</h3>
+                <p className="text-sm text-white/60 leading-relaxed">{step.description}</p>
+              </div>
+            </Fragment>
+          ))}
+        </div>
+      </motion.div>
     </div>
   </section>
 );
