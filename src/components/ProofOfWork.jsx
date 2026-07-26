@@ -2,8 +2,9 @@ import { motion } from 'framer-motion';
 import { ExternalLink } from 'lucide-react';
 import { FiGithub } from 'react-icons/fi';
 import accidentpathImage from '../images/accidentpath.png';
+import shoptitanImage from '../images/shoptitan.png';
+import reelrImage from '../images/reelr.png';
 import inframeImage from '../images/inframe.png';
-import adshieldImage from '../images/adshieldAI.png';
 import interviewerImage from '../images/interviewer.png';
 import legislationImage from '../images/legislation.png';
 import tbImage from '../images/TB.png';
@@ -13,20 +14,28 @@ const accidentPathStack = ['Next.js', 'TypeScript', 'Tailwind CSS', 'Supabase', 
 
 const projects = [
   {
+    title: 'Shop Titan',
+    description: 'Print shop websites and management software: marketing site and workflow video.',
+    image: shoptitanImage,
+    tags: ['Next.js', 'Remotion', 'Vercel'],
+    demoLink: 'https://shoptitan.app',
+    client: true,
+  },
+  {
+    title: 'Reelr Sports',
+    description: 'Sports events platform for discovering and organizing tournaments, leagues, and camps.',
+    image: reelrImage,
+    tags: ['React', 'TypeScript', 'C#'],
+    demoLink: 'https://sports.reelr.app',
+    client: true,
+  },
+  {
     title: 'InFrame',
     description: 'AI-generated LinkedIn posts: captions and visuals in seconds.',
     image: inframeImage,
     tags: ['React', 'TypeScript', 'Groq'],
     demoLink: 'https://postgen-ai-two.vercel.app/',
     codeLink: 'https://github.com/yop-dev/postgen-ai',
-  },
-  {
-    title: 'AdShield AI',
-    description: 'AI analysis of text, images, and documents for phishing and scam detection.',
-    image: adshieldImage,
-    tags: ['React', 'FastAPI', 'Supabase'],
-    demoLink: 'https://adshield-frontend.vercel.app',
-    codeLink: 'https://github.com/yop-dev/adshield-frontend',
   },
   {
     title: 'CareerLaunch AI',
@@ -154,7 +163,7 @@ const ProofOfWork = () => (
                   </span>
                 ))}
               </div>
-              <div className="flex gap-4">
+              <div className="flex items-center gap-4">
                 <a
                   href={project.demoLink}
                   target="_blank"
@@ -162,17 +171,22 @@ const ProofOfWork = () => (
                   className="inline-flex items-center gap-1.5 text-sm text-white/80 hover:text-white transition-colors"
                 >
                   <ExternalLink className="w-4 h-4" />
-                  Demo
+                  {project.client ? 'Visit' : 'Demo'}
                 </a>
-                <a
-                  href={project.codeLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-sm text-white/80 hover:text-white transition-colors"
-                >
-                  <FiGithub className="w-4 h-4" />
-                  Code
-                </a>
+                {project.codeLink && (
+                  <a
+                    href={project.codeLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-sm text-white/80 hover:text-white transition-colors"
+                  >
+                    <FiGithub className="w-4 h-4" />
+                    Code
+                  </a>
+                )}
+                {project.client && (
+                  <span className="text-xs text-white/50">Client work</span>
+                )}
               </div>
             </div>
           </motion.div>
