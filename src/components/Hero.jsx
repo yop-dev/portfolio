@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import {
   ArrowRight, Briefcase, Cog, Bot, Menu, Plus,
@@ -18,6 +18,18 @@ const pills = ['AI Engineering', 'n8n Automation', 'Full-Stack Web'];
 
 const Hero = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const menuRef = useRef(null);
+
+  useEffect(() => {
+    if (!menuOpen) return;
+    const handleOutsideClick = (event) => {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setMenuOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleOutsideClick);
+    return () => document.removeEventListener('mousedown', handleOutsideClick);
+  }, [menuOpen]);
 
   return (
     <section className="relative min-h-screen flex flex-col lg:flex-row">
@@ -28,7 +40,7 @@ const Hero = () => {
           {/* Nav */}
           <div className="flex items-center justify-between">
             <span className="text-2xl font-semibold tracking-tighter text-white">jds</span>
-            <div className="relative">
+            <div className="relative" ref={menuRef}>
               <button
                 onClick={() => setMenuOpen(!menuOpen)}
                 className="liquid-glass rounded-full px-4 py-2 flex items-center gap-2 text-sm text-white/80 hover:scale-105 transition-transform"
