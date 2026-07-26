@@ -27,7 +27,7 @@ const Hero = () => {
         <div className="relative z-10 flex flex-col flex-1 m-4 lg:m-6 p-6 sm:p-10">
           {/* Nav */}
           <div className="flex items-center justify-between">
-            <span className="text-2xl font-semibold tracking-tighter text-white">joner</span>
+            <span className="text-2xl font-semibold tracking-tighter text-white">jds</span>
             <div className="relative">
               <button
                 onClick={() => setMenuOpen(!menuOpen)}
