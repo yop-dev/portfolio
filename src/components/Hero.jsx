@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import {
-  ArrowRight, Sparkles, Wand2, BookOpen, Menu, Plus, Github, Linkedin, Mail,
+  ArrowRight, Sparkles, Wand2, BookOpen, Menu, Plus,
 } from 'lucide-react';
+import { FiGithub, FiLinkedin, FiMail } from 'react-icons/fi';
 import accidentpathImage from '../images/accidentpath.png';
 
 const navLinks = [
@@ -111,7 +112,7 @@ const Hero = () => {
               aria-label="GitHub"
               className="text-white hover:text-white/80 transition-colors"
             >
-              <Github className="w-4 h-4" />
+              <FiGithub className="w-4 h-4" />
             </a>
             <a
               href="https://www.linkedin.com/in/joner-de-silva-861575203/"
@@ -120,14 +121,14 @@ const Hero = () => {
               aria-label="LinkedIn"
               className="text-white hover:text-white/80 transition-colors"
             >
-              <Linkedin className="w-4 h-4" />
+              <FiLinkedin className="w-4 h-4" />
             </a>
             <a
               href="mailto:desilvajoner95@gmail.com"
               aria-label="Email"
               className="text-white hover:text-white/80 transition-colors"
             >
-              <Mail className="w-4 h-4" />
+              <FiMail className="w-4 h-4" />
             </a>
             <ArrowRight className="w-4 h-4 text-white/50" />
           </div>

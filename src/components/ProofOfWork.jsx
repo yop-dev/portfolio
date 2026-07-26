@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
-import { ExternalLink, Github } from 'lucide-react';
+import { ExternalLink } from 'lucide-react';
+import { FiGithub } from 'react-icons/fi';
 import accidentpathImage from '../images/accidentpath.png';
 import inframeImage from '../images/inframe.png';
 import adshieldImage from '../images/adshieldAI.png';
@@ -169,7 +170,7 @@ const ProofOfWork = () => (
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1.5 text-sm text-white/80 hover:text-white transition-colors"
                 >
-                  <Github className="w-4 h-4" />
+                  <FiGithub className="w-4 h-4" />
                   Code
                 </a>
               </div>

@@ -1,13 +1,13 @@
 import { motion } from 'framer-motion';
-import { Mail, Github, Linkedin, Phone, Download } from 'lucide-react';
+import { FiMail, FiGithub, FiLinkedin, FiPhone, FiDownload } from 'react-icons/fi';
 import resumeUrl from '../files/CV Joner De Silva.pdf';
 
 const contactLinks = [
-  { name: 'Resume', icon: Download, href: resumeUrl, download: 'Joner De Silva - Resume.pdf' },
-  { name: 'Email', icon: Mail, href: 'mailto:desilvajoner95@gmail.com' },
-  { name: 'Phone', icon: Phone, href: 'tel:+639638513001' },
-  { name: 'GitHub', icon: Github, href: 'https://github.com/yop-dev', external: true },
-  { name: 'LinkedIn', icon: Linkedin, href: 'https://www.linkedin.com/in/joner-de-silva-861575203/', external: true },
+  { name: 'Resume', icon: FiDownload, href: resumeUrl, download: 'Joner De Silva - Resume.pdf' },
+  { name: 'Email', icon: FiMail, href: 'mailto:desilvajoner95@gmail.com' },
+  { name: 'Phone', icon: FiPhone, href: 'tel:+639638513001' },
+  { name: 'GitHub', icon: FiGithub, href: 'https://github.com/yop-dev', external: true },
+  { name: 'LinkedIn', icon: FiLinkedin, href: 'https://www.linkedin.com/in/joner-de-silva-861575203/', external: true },
 ];
 
 const Contact = () => (

@@ -1,4 +1,4 @@
-import { Github, Linkedin, Mail } from 'lucide-react';
+import { FiGithub, FiLinkedin, FiMail } from 'react-icons/fi';
 
 const Footer = () => (
   <footer className="relative py-8">
@@ -13,7 +13,7 @@ const Footer = () => (
           aria-label="GitHub"
           className="hover:text-white transition-colors"
         >
-          <Github className="w-4 h-4" />
+          <FiGithub className="w-4 h-4" />
         </a>
         <a
           href="https://www.linkedin.com/in/joner-de-silva-861575203/"
@@ -22,14 +22,14 @@ const Footer = () => (
           aria-label="LinkedIn"
           className="hover:text-white transition-colors"
         >
-          <Linkedin className="w-4 h-4" />
+          <FiLinkedin className="w-4 h-4" />
         </a>
         <a
           href="mailto:desilvajoner95@gmail.com"
           aria-label="Email"
           className="hover:text-white transition-colors"
         >
-          <Mail className="w-4 h-4" />
+          <FiMail className="w-4 h-4" />
         </a>
       </div>
     </div>

@@ -143,9 +143,11 @@ Next.js, TypeScript, Supabase, n8n, Claude Code. Rows are clickable to company U
 ### 5. Contact CTA plus footer
 
 - One large `liquid-glass-strong` panel: headline "Let's build something" (serif italic
-  accent), short line, the existing EmailJS form restyled: glass inputs (bg-white/5,
-  no visible borders, white text), glass submit pill. Direct email and social links
-  alongside.
+  accent), short invitation line, and the existing contact links (Resume download, Email,
+  Phone, GitHub, LinkedIn) restyled as glass pills. Note: the current Contact component
+  has no form (EMAILJS_SETUP.md is aspirational, not wired); we keep the links-only
+  approach. The resume PDF must be imported through Vite (import from src/files) instead
+  of the current hardcoded /src/files path, which breaks in production builds.
 - Minimal footer: wordmark, "Built with React and too much coffee" type one-liner
   optional, copyright, socials. All text white/50.
 
