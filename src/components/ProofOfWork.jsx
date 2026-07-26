@@ -88,9 +88,9 @@ const ProofOfWork = () => {
         transition={{ duration: 0.6 }}
         className="text-center mb-14"
       >
-        <p className="text-xs tracking-widest uppercase text-white/50 mb-3">Proof of work</p>
+        <p className="text-xs tracking-widest uppercase text-amber-300/70 mb-3">Proof of work</p>
         <h2 className="text-4xl sm:text-5xl tracking-tight text-white">
-          Things I have <em className="text-white/80">shipped</em>
+          Things I have <em className="text-amber-200/90">shipped</em>
         </h2>
       </motion.div>
 
@@ -107,11 +107,11 @@ const ProofOfWork = () => {
             <img
               src={accidentpathImage}
               alt="AccidentPath.com homepage"
-              className="absolute inset-0 w-full h-full object-cover object-top grayscale hover:grayscale-0 transition-all duration-500"
+              className="absolute inset-0 w-full h-full object-cover object-top grayscale-[35%] hover:grayscale-0 transition-all duration-500"
             />
           </div>
           <div className="p-8 sm:p-12 flex flex-col justify-center">
-            <p className="text-xs tracking-widest uppercase text-white/50 mb-3">DTLA Print - client work</p>
+            <p className="text-xs tracking-widest uppercase text-amber-300/70 mb-3">DTLA Print - client work</p>
             <h3 className="text-3xl sm:text-4xl text-white mb-4">AccidentPath.com</h3>
             <p className="text-sm sm:text-base text-white/70 leading-relaxed mb-6">
               A bilingual EN/ES personal-injury guidance platform and attorney directory
@@ -157,7 +157,7 @@ const ProofOfWork = () => {
               <img
                 src={project.image}
                 alt={project.title}
-                className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500"
+                className="w-full h-full object-cover grayscale-[35%] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500"
               />
             </div>
             <div className="p-6">

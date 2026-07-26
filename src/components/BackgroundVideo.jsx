@@ -11,13 +11,13 @@ const BackgroundVideo = () => {
           loop
           muted
           playsInline
-          className="w-full h-full object-cover grayscale"
+          className="w-full h-full object-cover"
           onError={() => setFailed(true)}
         >
           <source src="/videos/background.mp4" type="video/mp4" />
         </video>
       )}
-      <div className="absolute inset-0 bg-black/50" />
+      <div className="absolute inset-0 bg-black/40" />
     </div>
   );
 };

@@ -63,7 +63,7 @@ const Hero = () => {
             >
               Software, shipped
               <br />
-              <em className="text-white/80">at the speed of AI</em>
+              <em className="text-amber-200/90">at the speed of AI</em>
             </motion.h1>
             <p className="text-white/60 text-sm sm:text-base">
               Joner De Silva - AI Software Engineer and Automation Expert
@@ -88,7 +88,7 @@ const Hero = () => {
 
           {/* Bottom quote */}
           <div className="text-center space-y-3">
-            <p className="text-xs tracking-widest uppercase text-white/50">Built with AI, shipped by me</p>
+            <p className="text-xs tracking-widest uppercase text-amber-300/70">Built with AI, shipped by me</p>
             <p className="text-lg text-white/80">
               I build the software <em className="font-serif italic">and the automations</em> that build the business.
             </p>
@@ -138,7 +138,7 @@ const Hero = () => {
             className="liquid-glass rounded-full pl-2 pr-4 py-2 flex items-center gap-2 text-sm text-white/80 hover:scale-105 transition-transform"
           >
             <span className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center">
-              <Sparkles className="w-4 h-4" />
+              <Sparkles className="w-4 h-4 text-amber-200" />
             </span>
             Hire me
           </a>
@@ -157,7 +157,7 @@ const Hero = () => {
           <div className="grid grid-cols-2 gap-3">
             <div className="liquid-glass rounded-3xl p-5">
               <span className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center mb-3">
-                <Wand2 className="w-4 h-4 text-white" />
+                <Wand2 className="w-4 h-4 text-amber-200" />
               </span>
               <h3 className="text-sm font-medium text-white mb-1">AI Engineering</h3>
               <p className="text-xs text-white/60 leading-relaxed">
@@ -166,7 +166,7 @@ const Hero = () => {
             </div>
             <div className="liquid-glass rounded-3xl p-5">
               <span className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center mb-3">
-                <BookOpen className="w-4 h-4 text-white" />
+                <BookOpen className="w-4 h-4 text-amber-200" />
               </span>
               <h3 className="text-sm font-medium text-white mb-1">Automation</h3>
               <p className="text-xs text-white/60 leading-relaxed">
@@ -178,7 +178,7 @@ const Hero = () => {
             <img
               src={accidentpathImage}
               alt="AccidentPath.com homepage"
-              className="w-24 h-16 object-cover rounded-xl grayscale"
+              className="w-24 h-16 object-cover rounded-xl grayscale-[35%]"
             />
             <div className="flex-1">
               <h3 className="text-sm font-medium text-white">Client work - AccidentPath.com</h3>
@@ -196,7 +196,7 @@ const Hero = () => {
             <img
               src={shoptitanImage}
               alt="ShopTitan.app homepage"
-              className="w-24 h-16 object-cover rounded-xl grayscale"
+              className="w-24 h-16 object-cover rounded-xl grayscale-[35%]"
             />
             <div className="flex-1">
               <h3 className="text-sm font-medium text-white">Client work - ShopTitan.app</h3>

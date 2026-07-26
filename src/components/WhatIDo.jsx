@@ -32,9 +32,9 @@ const WhatIDo = () => (
         transition={{ duration: 0.6 }}
         className="text-center mb-14"
       >
-        <p className="text-xs tracking-widest uppercase text-white/50 mb-3">Services</p>
+        <p className="text-xs tracking-widest uppercase text-amber-300/70 mb-3">Services</p>
         <h2 className="text-4xl sm:text-5xl tracking-tight text-white">
-          What I <em className="text-white/80">do</em>
+          What I <em className="text-amber-200/90">do</em>
         </h2>
       </motion.div>
       <div className="grid md:grid-cols-3 gap-6">
@@ -48,7 +48,7 @@ const WhatIDo = () => (
             className="liquid-glass rounded-3xl p-8"
           >
             <span className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center mb-5">
-              <service.icon className="w-5 h-5 text-white" />
+              <service.icon className="w-5 h-5 text-amber-200" />
             </span>
             <h3 className="text-xl text-white mb-3">{service.title}</h3>
             <p className="text-sm text-white/60 leading-relaxed mb-5">{service.description}</p>

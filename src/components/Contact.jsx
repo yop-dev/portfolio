@@ -20,9 +20,9 @@ const Contact = () => (
         transition={{ duration: 0.7 }}
         className="liquid-glass-strong rounded-[2.5rem] p-10 sm:p-16 text-center"
       >
-        <p className="text-xs tracking-widest uppercase text-white/50 mb-4">Contact</p>
+        <p className="text-xs tracking-widest uppercase text-amber-300/70 mb-4">Contact</p>
         <h2 className="text-4xl sm:text-5xl tracking-tight text-white mb-4">
-          Let&apos;s build <em className="text-white/80">something</em>
+          Let&apos;s build <em className="text-amber-200/90">something</em>
         </h2>
         <p className="text-white/60 max-w-xl mx-auto mb-10">
           Need AI features, automations, or a production web app shipped fast?

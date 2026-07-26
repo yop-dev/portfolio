@@ -54,9 +54,9 @@ const Experience = () => (
         transition={{ duration: 0.6 }}
         className="text-center mb-14"
       >
-        <p className="text-xs tracking-widest uppercase text-white/50 mb-3">Background</p>
+        <p className="text-xs tracking-widest uppercase text-amber-300/70 mb-3">Background</p>
         <h2 className="text-4xl sm:text-5xl tracking-tight text-white">
-          Where I have <em className="text-white/80">worked</em>
+          Where I have <em className="text-amber-200/90">worked</em>
         </h2>
       </motion.div>
       <div className="space-y-4">
